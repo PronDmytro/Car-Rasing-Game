@@ -23,12 +23,12 @@ namespace NFS
             MessageBox.Show(login + " - " + password);
         }
 
-        private void exitButton_Click(object sender, EventArgs e)
+        private void ExitButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void settingsButton_Click(object sender, EventArgs e)
+        private void SettingsButton_Click(object sender, EventArgs e)
         {
             this.Hide();
             using (SettingsForm settingsForm = new SettingsForm())
@@ -49,7 +49,7 @@ namespace NFS
             this.Hide();
             using (Game game = new Game())
             {
-                game.login = login;
+                game.player.login = login;
                 
                 var result = game.ShowDialog();
 
