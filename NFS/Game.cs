@@ -5,39 +5,40 @@ using NFS.Properties;
 
 namespace NFS
 {
-    public partial class Game : Form
+    public class Player
     {
         public string login;
-        public class Player
-        {
-            public int playerSpeed = 12;
-            public bool goleft;
-            public bool goright;
+        public int playerSpeed = 12;
+        public bool goleft;
+        public bool goright;
+        public int score;
 
-            public void GoLeft(PictureBox player_box)
+        public void GoLeft(PictureBox player_box)
+        {
+            if (goleft == true && player_box.Left > 10)
             {
-                if (goleft == true && player_box.Left > 10)
-                {
-                    player_box.Left -= playerSpeed;
-                }
-            }
-            public void GoRight(PictureBox player_box)
-            {
-                if (goright == true && player_box.Left < 415)
-                {
-                    player_box.Left += playerSpeed;
-                }
+                player_box.Left -= playerSpeed;
             }
         }
 
-        Player player = new Player();
-        int roadSpeed;
-        int trafficSpeed;
-        int score;
-        int carImage;
+        public void GoRight(PictureBox player_box)
+        {
+            if (goright == true && player_box.Left < 415)
+            {
+                player_box.Left += playerSpeed;
+            }
+        }
+    }
+    public partial class Game : Form
+    {
+        
 
-        Random rand = new Random();
-        Random carPosition = new Random();
+        public Player player = new Player();
+        private int _roadSpeed;
+        private int _trafficSpeed;
+        private int _carImage;
+        private Random rand = new Random();
+        private Random carPosition = new Random();
 
 
         public Game()
@@ -46,44 +47,49 @@ namespace NFS
             ResetGame();
         }
 
-        private void keyisdown(object sender, KeyEventArgs e)
+        private void KeyIsDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Left || e.KeyCode == Keys.A)
+            switch (e.KeyCode)
             {
-                player.goleft = true;
-            }
-            if (e.KeyCode == Keys.Right || e.KeyCode == Keys.D)
-            {
-                player.goright = true;
-            }
-
-        }
-
-        private void keyisup(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Left || e.KeyCode == Keys.A)
-            {
-                player.goleft = false;
-            }
-            if (e.KeyCode == Keys.Right || e.KeyCode == Keys.D)
-            {
-                player.goright = false;
+                case Keys.Left:
+                case Keys.A:
+                    player.goleft = true;
+                    break;
+                case Keys.Right:
+                case Keys.D:
+                    player.goright = true;
+                    break;
             }
         }
 
-        private void gameTimerEvent(object sender, EventArgs e)
+        private void KeyIsUp(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Left:
+                case Keys.A:
+                    player.goleft = false;
+                    break;
+                case Keys.Right:
+                case Keys.D:
+                    player.goright = false;
+                    break;
+            }
+        }
+
+        private void GameTimerEvent(object sender, EventArgs e)
         {
 
-            txtScore.Text = "Score: " + score;
-            score++;
+            txtScore.Text = @"Score: " + player.score;
+            player.score++;
 
             player.GoLeft(player_box);
             player.GoRight(player_box);
             
             
 
-            roadTrack1.Top += roadSpeed;
-            roadTrack2.Top += roadSpeed;
+            roadTrack1.Top += _roadSpeed;
+            roadTrack2.Top += _roadSpeed;
 
             if (roadTrack2.Top > 519)
             {
@@ -94,83 +100,64 @@ namespace NFS
                 roadTrack1.Top = -519;
             }
 
-            AI1.Top += trafficSpeed;
-            AI2.Top += trafficSpeed;
+            AI1.Top += _trafficSpeed;
+            AI2.Top += _trafficSpeed;
 
 
             if (AI1.Top > 530)
             {
-                changeAIcars(AI1);
+                ChangeAiCars(AI1);
             }
 
             if (AI2.Top > 530)
             {
-                changeAIcars(AI2);
+                ChangeAiCars(AI2);
             }
 
             if (player_box.Bounds.IntersectsWith(AI1.Bounds) || player_box.Bounds.IntersectsWith(AI2.Bounds))
             {
-                gameOver();
+                GameOver();
             }
 
-            if (score > 40 && score < 500)
+            if (player.score > 40 && player.score < 500)
             {
                 award.Image = Resources.bronze;
             }
 
 
-            if (score > 500 && score < 2000)
+            if (player.score > 500 && player.score < 2000)
             {
                 award.Image = Resources.silver;
-                roadSpeed = 20;
-                trafficSpeed = 22;
+                _roadSpeed = 20;
+                _trafficSpeed = 22;
             }
 
-            if (score > 2000)
+            if (player.score > 2000)
             {
                 award.Image = Resources.gold;
-                trafficSpeed = 27;
-                roadSpeed = 25;
+                _trafficSpeed = 27;
+                _roadSpeed = 25;
             }
         }
 
-        private void changeAIcars(PictureBox tempCar)
+        private void ChangeAiCars(PictureBox tempCar)
         {
 
-            carImage = rand.Next(1, 9);
+            _carImage = rand.Next(1, 9);
 
-            switch (carImage)
+            tempCar.Image = _carImage switch
             {
-
-                case 1:
-                    tempCar.Image = Resources.ambulance;
-                    break;
-                case 2:
-                    tempCar.Image = Resources.carGreen;
-                    break;
-                case 3:
-                    tempCar.Image = Resources.carGrey;
-                    break;
-                case 4:
-                    tempCar.Image = Resources.carOrange;
-                    break;
-                case 5:
-                    tempCar.Image = Resources.carPink;
-                    break;
-                case 6:
-                    tempCar.Image = Resources.CarRed;
-                    break;
-                case 7:
-                    tempCar.Image = Resources.carYellow;
-                    break;
-                case 8:
-                    tempCar.Image = Resources.TruckBlue;
-                    break;
-                case 9:
-                    tempCar.Image = Resources.TruckWhite;
-                    break;
-            }
-
+                1 => Resources.ambulance,
+                2 => Resources.carGreen,
+                3 => Resources.carGrey,
+                4 => Resources.carOrange,
+                5 => Resources.carPink,
+                6 => Resources.CarRed,
+                7 => Resources.carYellow,
+                8 => Resources.TruckBlue,
+                9 => Resources.TruckWhite,
+                _ => tempCar.Image
+            };
 
             tempCar.Top = carPosition.Next(100, 400) * -1;
 
@@ -185,9 +172,9 @@ namespace NFS
             }
         }
 
-        private void gameOver()
+        private void GameOver()
         {
-            playSound();
+            PlaySound();
             gameTimer.Stop();
             explosion.Visible = true;
             player_box.Controls.Add(explosion);
@@ -208,11 +195,11 @@ namespace NFS
             award.Visible = false;
             player.goleft = false;
             player.goright = false;
-            score = 0;
+            player.score = 0;
             award.Image = Resources.bronze;
 
-            roadSpeed = 12;
-            trafficSpeed = 15;
+            _roadSpeed = 12;
+            _trafficSpeed = 15;
 
             AI1.Top = carPosition.Next(200, 500) *-1;
             AI1.Left = carPosition.Next(5, 200);
@@ -223,19 +210,19 @@ namespace NFS
             gameTimer.Start();
         }
 
-        private void restartGame(object sender, EventArgs e)
+        private void RestartGame(object sender, EventArgs e)
         {
             ResetGame();
         }
 
-        private void playSound()
+        private static void PlaySound()
         {
             System.Media.SoundPlayer playCrash = new System.Media.SoundPlayer(Resources.hit);
             playCrash.Play();
             
         }
 
-        private void exitButton_Click(object sender, EventArgs e)
+        private void ExitButton_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
             Close();

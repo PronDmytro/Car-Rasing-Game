@@ -173,7 +173,7 @@
             // gameTimer
             // 
             this.gameTimer.Interval = 20;
-            this.gameTimer.Tick += new System.EventHandler(this.gameTimerEvent);
+            this.gameTimer.Tick += new System.EventHandler(this.GameTimerEvent);
             // 
             // btnStart
             // 
@@ -188,7 +188,7 @@
             this.btnStart.Text = "Start";
             this.btnStart.UseMnemonic = false;
             this.btnStart.UseVisualStyleBackColor = false;
-            this.btnStart.Click += new System.EventHandler(this.restartGame);
+            this.btnStart.Click += new System.EventHandler(this.RestartGame);
             // 
             // exitButton
             // 
@@ -202,7 +202,7 @@
             this.exitButton.TabIndex = 7;
             this.exitButton.Text = "Exit";
             this.exitButton.UseVisualStyleBackColor = false;
-            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            this.exitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
             // Game
             // 
@@ -221,8 +221,8 @@
             this.MinimizeBox = false;
             this.Name = "Game";
             this.Text = "Car Racing Game MOO ICT";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keyisdown);
-            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.keyisup);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyIsDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.KeyIsUp);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AI2)).EndInit();
