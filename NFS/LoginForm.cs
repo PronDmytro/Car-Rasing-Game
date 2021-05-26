@@ -4,14 +4,12 @@ using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 using MySqlConnector;
-using NLog;
 
 namespace NFS
 {
     public partial class LoginForm : Form
     {
-        private static Logger logger = LogManager.GetCurrentClassLogger();
-         
+          
         public LoginForm()
         {
             InitializeComponent();
@@ -36,7 +34,6 @@ namespace NFS
         }
         private void ButtonLogin_Click(object sender, EventArgs e)
         {
-            logger.Trace($"Login Button is click with paramethrs:login = {loginField.Text}, pass = {passField.Text};");
             DB db = new DB();
             int req = db.IsLogin(loginField.Text, passField.Text);
             if (req == 1)
