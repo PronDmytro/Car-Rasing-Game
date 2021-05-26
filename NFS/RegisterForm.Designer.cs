@@ -88,7 +88,7 @@ namespace NFS
             this.logInLabel.Size = new System.Drawing.Size(191, 19);
             this.logInLabel.TabIndex = 16;
             this.logInLabel.Text = "Already have an account?";
-            this.logInLabel.Click += new System.EventHandler(this.logInLabel_Click);
+            this.logInLabel.Click += new System.EventHandler(this.LogInLabel_Click);
             // 
             // passErrorLabel
             // 

@@ -78,7 +78,7 @@ namespace NFS
             this.signUpLabel.Size = new System.Drawing.Size(174, 19);
             this.signUpLabel.TabIndex = 13;
             this.signUpLabel.Text = "Don\'t have an account?";
-            this.signUpLabel.Click += new System.EventHandler(this.signUpLabel_Click);
+            this.signUpLabel.Click += new System.EventHandler(this.SignUpLabel_Click);
             // 
             // forgotPassLabel
             // 

@@ -122,9 +122,14 @@ namespace NFS
         private void ButtonRegister_Click(object sender, EventArgs e)
         {
             DB db = new DB();
-            if (db.IsUserExist(emailField.Text))
+            int req = db.IsUserExist(emailField.Text);
+            if (req == 1)
             {
                 MessageBox.Show("A user with this e-mail address already exists, please try the forgot password option!");
+                return;
+            }
+            else if (req == -1)
+            {
                 return;
             }
             db.AddUser(emailField.Text, passField.Text, userNameField.Text);
@@ -178,7 +183,7 @@ namespace NFS
         }
         
 
-        private void logInLabel_Click(object sender, EventArgs e)
+        private void LogInLabel_Click(object sender, EventArgs e)
         {
             this.Hide();
             LoginForm loginForm = new LoginForm();

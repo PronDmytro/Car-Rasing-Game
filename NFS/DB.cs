@@ -12,6 +12,7 @@ namespace NFS
 {
     class DB
     {
+        private bool isConnectionOpen = false;
         private MySqlConnection connection = new MySqlConnection("server=localhost;port=3306;username=root;password=root;database=nfs");
 
         public void OpenConnection()
@@ -19,9 +20,11 @@ namespace NFS
             try
             {
                 connection.Open();
+                isConnectionOpen = false;
             }
             catch (Exception ex)
             {
+                isConnectionOpen = false;
                 MessageBox.Show("SQLITE CONNECT ERROR : " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -30,6 +33,7 @@ namespace NFS
             if (connection.State == System.Data.ConnectionState.Open)
             {
                 connection.Close();
+                isConnectionOpen = false;
             }
         }
 
@@ -129,8 +133,9 @@ namespace NFS
             CloseConnection();
         }
 
-        public Boolean IsLogin(string emailField, string passField)
+        public int IsLogin(string emailField, string passField)
         {
+
             DataTable table = new DataTable();
 
             MySqlDataAdapter adapter = new MySqlDataAdapter();
@@ -138,21 +143,31 @@ namespace NFS
             MySqlCommand command = new MySqlCommand("SELECT * FROM `users` WHERE `login` = @uL AND `pass` = @uP", GetConnection());
             command.Parameters.Add("@uL", MySqlDbType.VarChar).Value = emailField;
             command.Parameters.Add("@uP", MySqlDbType.VarChar).Value = passField;
-
-            adapter.SelectCommand = command;
-            adapter.Fill(table);
-            if (table.Rows.Count > 0)
+            OpenConnection();
+            if (isConnectionOpen)
             {
-                return true;
+                adapter.SelectCommand = command;
+                adapter.Fill(table);
+                CloseConnection();
             }
             else
             {
-                return false;
+                CloseConnection();
+                return -1;
             }
-        }
-        public Boolean IsUserExist(string emailField)
-        {
 
+            if (table.Rows.Count > 0)
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
+
+        }
+        public int IsUserExist(string emailField)
+        {
             DataTable table = new DataTable();
 
             MySqlDataAdapter adapter = new MySqlDataAdapter();
@@ -161,16 +176,26 @@ namespace NFS
             command.Parameters.Add("@uL", MySqlDbType.VarChar).Value = emailField;
 
 
-            adapter.SelectCommand = command;
-            adapter.Fill(table);
-
-            if (table.Rows.Count > 0)
+            OpenConnection();
+            if (isConnectionOpen)
             {
-                return true;
+                adapter.SelectCommand = command;
+                adapter.Fill(table); 
+                CloseConnection();
             }
             else
             {
-                return false;
+                CloseConnection();
+                return -1;
+            }
+            
+            if (table.Rows.Count > 0)
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
             }
         }
     }
