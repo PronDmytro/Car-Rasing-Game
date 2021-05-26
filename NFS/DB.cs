@@ -1,17 +1,14 @@
-﻿
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySqlConnector;
+using NLog;
 
 namespace NFS
 {
     class DB
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         private bool isConnectionOpen = false;
         private MySqlConnection connection = new MySqlConnection("server=localhost;port=3306;username=root;password=root;database=nfs");
 
@@ -19,12 +16,14 @@ namespace NFS
         {
             try
             {
+                logger.Info("SQLITE open connection is successful;");
                 connection.Open();
-                isConnectionOpen = false;
+                isConnectionOpen = true;
             }
             catch (Exception ex)
             {
                 isConnectionOpen = false;
+                logger.Fatal($"SQLITE CONNECT ERROR : {ex.Message};");
                 MessageBox.Show("SQLITE CONNECT ERROR : " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -32,6 +31,7 @@ namespace NFS
         {
             if (connection.State == System.Data.ConnectionState.Open)
             {
+                logger.Info("SQLITE close connection is successful;");
                 connection.Close();
                 isConnectionOpen = false;
             }
@@ -39,6 +39,7 @@ namespace NFS
 
         public MySqlConnection GetConnection()
         {
+            logger.Info("GetConnection is successful;");
             return connection;
         }
 
@@ -55,10 +56,12 @@ namespace NFS
 
             if (command.ExecuteNonQuery() == 1)
             {
+                logger.Info("Password change is successful;");
                 MessageBox.Show(@"Password change has been completed");
             }
             else
             {
+                logger.Warn("Password change is unsuccessful;");
                 MessageBox.Show(@"Password change can't be completed. Please try again later!");
             }
 
@@ -77,10 +80,12 @@ namespace NFS
 
             if (command.ExecuteNonQuery() == 1)
             {
+                logger.Info("Email change is successful;");
                 MessageBox.Show(@"Email change has been completed");
             }
             else
             {
+                logger.Warn("Email change is unsuccessful;");
                 MessageBox.Show(@"Email change can't be completed. Please try again later!");
             }
 
@@ -100,10 +105,12 @@ namespace NFS
 
             if (command.ExecuteNonQuery() == 1)
             {
+                logger.Info("Name change is successful;");
                 MessageBox.Show(@"Name change has been completed");
             }
             else
             {
+                logger.Warn("Name change is unsuccessful;");
                 MessageBox.Show(@"Name change can't be completed. Please try again later!");
             }
 
@@ -123,10 +130,12 @@ namespace NFS
 
             if (command.ExecuteNonQuery() == 1)
             {
+                logger.Info("Registration is successful;");
                 MessageBox.Show(@"Registration has been completed");
             }
             else
             {
+                logger.Warn("Registration is unsuccessful;");
                 MessageBox.Show(@"Registration can't be completed. Please try again later!");
             }
 
@@ -152,16 +161,19 @@ namespace NFS
             }
             else
             {
+                logger.Warn("Loging is unsuccessful;");
                 CloseConnection();
                 return -1;
             }
 
             if (table.Rows.Count > 0)
             {
+                logger.Info("Loging is successful;");
                 return 1;
             }
             else
             {
+                logger.Warn("Loging is unsuccessful;");
                 return 0;
             }
 
@@ -185,16 +197,19 @@ namespace NFS
             }
             else
             {
+                logger.Warn("Users checking failed!");
                 CloseConnection();
                 return -1;
             }
             
             if (table.Rows.Count > 0)
             {
+                logger.Info("User is exist;");
                 return 1;
             }
             else
             {
+                logger.Info("User isn't exist;");
                 return 0;
             }
         }

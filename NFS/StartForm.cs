@@ -1,19 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using NLog;
 
 namespace NFS
 {
     public partial class StartForm : Form
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         public StartForm()
         {
+            logger.Info("\n\n\n" +
+                        "----NFS----");
             InitializeComponent();
         }
 
@@ -22,12 +19,13 @@ namespace NFS
             timer1.Start();
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void Timer1_Tick(object sender, EventArgs e)
         {
 
             if (progressBar1.Value == 100)
             {
                 timer1.Stop();
+                logger.Info("Loading is successful!");
                 label1.Text = @"Successful";
                 startButton.Enabled = true;
             }
@@ -38,12 +36,15 @@ namespace NFS
             
         }
 
-        private void startButton_Click(object sender, EventArgs e)
+        private void StartButton_Click(object sender, EventArgs e)
         {
+            logger.Info("Start btn is click;");
             
             LoginForm loginForm = new LoginForm();
-            this.Hide();
+            
             loginForm.Show();
+            this.Hide();
+            logger.Info("LoginForm is open;\n");
         }
     }
 }

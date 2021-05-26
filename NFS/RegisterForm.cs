@@ -9,11 +9,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySqlConnector;
+using NLog;
 
 namespace NFS
 {
     public partial class RegisterForm : Form
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         public RegisterForm()
         {
             InitializeComponent();
@@ -29,6 +31,7 @@ namespace NFS
 
         private void LabelClose_Click(object sender, EventArgs e)
         {
+            logger.Info("Exit From Application");
             Application.Exit();
         }
 
@@ -121,10 +124,13 @@ namespace NFS
 
         private void ButtonRegister_Click(object sender, EventArgs e)
         {
+            logger.Info("Register btn is click;");
+
             DB db = new DB();
             int req = db.IsUserExist(emailField.Text);
             if (req == 1)
             {
+                logger.Warn("Register is failed because user with this e-mail address already exists;");
                 MessageBox.Show("A user with this e-mail address already exists, please try the forgot password option!");
                 return;
             }
@@ -132,11 +138,12 @@ namespace NFS
             {
                 return;
             }
+            
             db.AddUser(emailField.Text, passField.Text, userNameField.Text);
             MainForm form = new MainForm(this.emailField.Text, this.passField.Text);
             this.Hide();
             form.ShowDialog();
-
+            logger.Info("Open MainForm;");
         }
 
         private void EmailField_TextChanged(object sender, EventArgs e)
@@ -185,14 +192,17 @@ namespace NFS
 
         private void LogInLabel_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            logger.Info("Click on LogInLabel;");
+            
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
+            this.Close();
+            logger.Info("Open LoginForm;");
         }
 
         private void RegisterForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            logger.Info("Exit From RegisterForm;");
         }
     }
 }

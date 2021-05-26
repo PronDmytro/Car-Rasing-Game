@@ -1,15 +1,14 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
-using MySqlConnector;
+using NLog;
 
 namespace NFS
 {
     public partial class LoginForm : Form
     {
-          
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         public LoginForm()
         {
             InitializeComponent();
@@ -34,10 +33,13 @@ namespace NFS
         }
         private void ButtonLogin_Click(object sender, EventArgs e)
         {
+            logger.Info("Login btn is click;");
             DB db = new DB();
             int req = db.IsLogin(loginField.Text, passField.Text);
-            if (req == 1)
+            
+            if (req == 0)
             {
+                logger.Error("Invalid user or password!");
                 MessageBox.Show("ERROR! Invalid user or password!", "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
@@ -45,7 +47,7 @@ namespace NFS
             {
                 return;
             }
-            
+            logger.Info("Open MainForm");
             MainForm form = new MainForm(this.loginField.Text, this.passField.Text);
             this.Hide();
             form.ShowDialog();
@@ -115,22 +117,17 @@ namespace NFS
 
         private void ForgotPassLabel_Click(object sender, EventArgs e)
         {
-
             DB db = new DB();
+            int req = db.IsUserExist(loginField.Text);
 
-            DataTable table = new DataTable();
-
-            MySqlDataAdapter adapter = new MySqlDataAdapter();
-
-            MySqlCommand command = new MySqlCommand("SELECT * FROM `users` WHERE `login` = @uL", db.GetConnection());
-            command.Parameters.Add("@uL", MySqlDbType.VarChar).Value = loginField.Text;
-            
-            adapter.SelectCommand = command;
-            adapter.Fill(table);
-
-            if (table.Rows.Count == 0)
+            if (req == 0)
             {
-                 MessageBox.Show(@"Enter your valid email!");
+                logger.Info("Entered unvalid email!");
+                MessageBox.Show(@"Enter your valid email!");
+                return;
+            }
+            else if (req == -1)
+            {
                 return;
             }
 
@@ -145,14 +142,18 @@ namespace NFS
 
         private void SignUpLabel_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            logger.Info("Click on SignUpLabel;");
+            
             RegisterForm registerForm = new RegisterForm();
             registerForm.Show();
+            this.Close();
+            logger.Info("Open RegisterForm;\n");
         }
 
         private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            logger.Info("Exit From LoginForm;");
+            //Application.Exit();
         }
     }
 }

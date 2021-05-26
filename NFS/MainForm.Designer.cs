@@ -94,6 +94,7 @@ namespace NFS
             this.leaderboardButton.TabIndex = 8;
             this.leaderboardButton.Text = "Leaderboard";
             this.leaderboardButton.UseVisualStyleBackColor = false;
+            this.leaderboardButton.Click += new System.EventHandler(this.LeaderboardButton_Click);
             // 
             // settingsButton
             // 
@@ -121,6 +122,7 @@ namespace NFS
             this.statisticButton.TabIndex = 2;
             this.statisticButton.Text = "Statistic";
             this.statisticButton.UseVisualStyleBackColor = false;
+            this.statisticButton.Click += new System.EventHandler(this.StatisticButton_Click);
             // 
             // startGameButton
             // 
@@ -157,6 +159,7 @@ namespace NFS
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "MainForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
