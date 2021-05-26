@@ -41,7 +41,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
             this.btnStart = new System.Windows.Forms.Button();
-            this.exitButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AI2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AI1)).BeginInit();
@@ -190,27 +189,12 @@
             this.btnStart.UseVisualStyleBackColor = false;
             this.btnStart.Click += new System.EventHandler(this.RestartGame);
             // 
-            // exitButton
-            // 
-            this.exitButton.BackColor = System.Drawing.Color.DarkOrange;
-            this.exitButton.FlatAppearance.BorderSize = 0;
-            this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.exitButton.Font = new System.Drawing.Font("Roboto", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.exitButton.Location = new System.Drawing.Point(149, 715);
-            this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(250, 36);
-            this.exitButton.TabIndex = 7;
-            this.exitButton.Text = "Exit";
-            this.exitButton.UseVisualStyleBackColor = false;
-            this.exitButton.Click += new System.EventHandler(this.ExitButton_Click);
-            // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PapayaWhip;
             this.ClientSize = new System.Drawing.Size(582, 901);
-            this.Controls.Add(this.exitButton);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtScore);
@@ -250,7 +234,6 @@
         private System.Windows.Forms.PictureBox player_box;
         private System.Windows.Forms.Timer gameTimer;
         private System.Windows.Forms.Button btnStart;
-        private System.Windows.Forms.Button exitButton;
     }
 }
 

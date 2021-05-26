@@ -5,6 +5,9 @@ using NFS.Properties;
 
 namespace NFS
 {
+   
+    public partial class Game : Form
+    {
     public class Player
     {
         public string login;
@@ -23,15 +26,12 @@ namespace NFS
 
         public void GoRight(PictureBox player_box)
         {
-            if (goright == true && player_box.Left < 415)
+            if (goright == true && player_box.Left < 500)
             {
                 player_box.Left += playerSpeed;
             }
         }
     }
-    public partial class Game : Form
-    {
-        
 
         public Player player = new Player();
         private int _roadSpeed;
@@ -85,8 +85,8 @@ namespace NFS
 
             player.GoLeft(player_box);
             player.GoRight(player_box);
-            
-            
+
+
 
             roadTrack1.Top += _roadSpeed;
             roadTrack2.Top += _roadSpeed;
@@ -189,7 +189,6 @@ namespace NFS
 
         private void ResetGame()
         {
-
             btnStart.Enabled = false;
             explosion.Visible = false;
             award.Visible = false;
@@ -201,7 +200,7 @@ namespace NFS
             _roadSpeed = 12;
             _trafficSpeed = 15;
 
-            AI1.Top = carPosition.Next(200, 500) *-1;
+            AI1.Top = carPosition.Next(200, 500) * -1;
             AI1.Left = carPosition.Next(5, 200);
 
             AI2.Top = carPosition.Next(200, 500) * -1;
@@ -219,13 +218,8 @@ namespace NFS
         {
             System.Media.SoundPlayer playCrash = new System.Media.SoundPlayer(Resources.hit);
             playCrash.Play();
-            
+
         }
 
-        private void ExitButton_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.OK;
-            Close();
-        }
     }
 }
