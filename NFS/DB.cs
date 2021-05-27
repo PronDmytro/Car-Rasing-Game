@@ -97,14 +97,15 @@ namespace NFS
 
             command.Parameters.Add("@nameNew", MySqlDbType.VarChar).Value = newName;
             command.Parameters.Add("@login", MySqlDbType.VarChar).Value = email;
-
-            OpenConnection();
-
-
-            if (command.ExecuteNonQuery() == 1)
+            if (isConnectionOpen)
             {
-                logger.Info("Name change is successful;");
-                MessageBox.Show(@"Name change has been completed");
+                OpenConnection();
+
+                if (command.ExecuteNonQuery() == 1)
+                {
+                    logger.Info("Name change is successful;");
+                    MessageBox.Show(@"Name change has been completed");
+                }
             }
             else
             {
