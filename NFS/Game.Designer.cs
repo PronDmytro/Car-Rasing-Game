@@ -180,7 +180,7 @@
             this.btnStart.FlatAppearance.BorderSize = 0;
             this.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStart.Font = new System.Drawing.Font("Roboto", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnStart.Location = new System.Drawing.Point(149, 673);
+            this.btnStart.Location = new System.Drawing.Point(161, 673);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(250, 36);
             this.btnStart.TabIndex = 4;

@@ -18,7 +18,7 @@ namespace NFS
 
             public void GoLeft(PictureBox player_box)
             {
-                if (goleft == true && player_box.Left > 100)
+                if (goleft == true && player_box.Left > 60)
                 {
                     player_box.Left -= playerSpeed;
                 }
@@ -26,7 +26,7 @@ namespace NFS
 
             public void GoRight(PictureBox player_box)
             {
-                if (goright == true && player_box.Left < 500)
+                if (goright == true && player_box.Left < 455)
                 {
                     player_box.Left += playerSpeed;
                 }
@@ -79,8 +79,8 @@ namespace NFS
 
         private void GameTimerEvent(object sender, EventArgs e)
         {
-
-            txtScore.Text = @"Score: " + player.score;
+            txtScore.Text = player_box.Left.ToString();
+            //txtScore.Text = @"Score: " + player.score;
             player.score++;
 
             player.GoLeft(player_box);
@@ -164,11 +164,11 @@ namespace NFS
 
             if ((string)tempCar.Tag == "carLeft")
             {
-                tempCar.Left = carPosition.Next(5, 200);
+                tempCar.Left = carPosition.Next(60, 200);
             }
             if ((string)tempCar.Tag == "carRight")
             {
-                tempCar.Left = carPosition.Next(245, 422);
+                tempCar.Left = carPosition.Next(245, 455);
             }
         }
 
