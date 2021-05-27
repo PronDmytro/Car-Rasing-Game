@@ -274,18 +274,18 @@ namespace NFS
             }
             else
             {
-                logger.Warn("AddCountOfGames is unsuccessful;");
+                logger.Warn("GetCountOfGames is unsuccessful;");
                 CloseConnection();
             }
 
             if (table.Rows.Count > 0)
             {
-                logger.Info("AddCountOfGames is successful;");
-                return (int)table.Rows[0][4];
+                logger.Info($"GetCountOfGames is successful - {table.Rows[0][5]};");
+                return (int)table.Rows[0][5];
             }
             else
             {
-                logger.Warn("Loging is unsuccessful;");
+                logger.Warn("GetCountOfGames is unsuccessful;");
                 return -1;
             }
         }

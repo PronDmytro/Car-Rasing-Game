@@ -8,30 +8,30 @@ namespace NFS
 {
     public partial class Game : Form
     {
-    public class Player
-    {
-        public string login;
-        public int playerSpeed = 12;
-        public bool goleft;
-        public bool goright;
-        public int score;
-
-        public void GoLeft(PictureBox player_box)
+        public class Player
         {
-            if (goleft == true && player_box.Left > 10)
+            public string login;
+            public int playerSpeed = 12;
+            public bool goleft;
+            public bool goright;
+            public int score;
+
+            public void GoLeft(PictureBox player_box)
             {
-                player_box.Left -= playerSpeed;
+                if (goleft == true && player_box.Left > 100)
+                {
+                    player_box.Left -= playerSpeed;
+                }
+            }
+
+            public void GoRight(PictureBox player_box)
+            {
+                if (goright == true && player_box.Left < 500)
+                {
+                    player_box.Left += playerSpeed;
+                }
             }
         }
-
-        public void GoRight(PictureBox player_box)
-        {
-            if (goright == true && player_box.Left < 500)
-            {
-                player_box.Left += playerSpeed;
-            }
-        }
-    }
 
         public Player player = new Player();
         private int _roadSpeed;
@@ -227,5 +227,9 @@ namespace NFS
 
         }
 
+        private void Game_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+        }
     }
 }

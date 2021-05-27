@@ -205,6 +205,7 @@
             this.MinimizeBox = false;
             this.Name = "Game";
             this.Text = "Car Racing Game MOO ICT";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Game_FormClosing);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyIsDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.KeyIsUp);
             this.panel1.ResumeLayout(false);
