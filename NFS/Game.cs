@@ -43,7 +43,6 @@ namespace NFS
         private static Logger logger = LogManager.GetCurrentClassLogger();
         public Game()
         {
-            logger.Info("Game is start;");
             InitializeComponent();
             ResetGame();
         }
@@ -177,6 +176,7 @@ namespace NFS
         {
             logger.Info("Game over;");
             DB db = new DB();
+            db.SetCountOfGames(player.login);
             logger.Info($"Set new score - { player.score} to {player.login};");
             db.SetScore(player.login, player.score);
 

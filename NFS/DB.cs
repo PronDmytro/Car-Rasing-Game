@@ -165,7 +165,6 @@ namespace NFS
         }
         public int IsLogin(string emailField, string passField)
         {
-
             DataTable table = new DataTable();
 
             MySqlDataAdapter adapter = new MySqlDataAdapter();
@@ -197,7 +196,6 @@ namespace NFS
                 logger.Warn("Loging is unsuccessful;");
                 return 0;
             }
-
         }
         public int IsUserExist(string emailField)
         {
@@ -254,6 +252,63 @@ namespace NFS
             {
                 logger.Warn("Set new score is unsuccessful;");
                 MessageBox.Show(@"Set new score can't be completed. Please try again later!");
+            }
+
+            CloseConnection();
+        }
+
+        public int GetCountOfGames(string login)
+        {
+            DataTable table = new DataTable();
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+
+            MySqlCommand command = new MySqlCommand("SELECT * FROM `users` WHERE `login` = @uL;", GetConnection());
+            command.Parameters.Add("@uL", MySqlDbType.VarChar).Value = login;
+            OpenConnection();
+            if (isConnectionOpen)
+            {
+                adapter.SelectCommand = command;
+                adapter.Fill(table);
+                CloseConnection();
+            }
+            else
+            {
+                logger.Warn("AddCountOfGames is unsuccessful;");
+                CloseConnection();
+            }
+
+            if (table.Rows.Count > 0)
+            {
+                logger.Info("AddCountOfGames is successful;");
+                return (int)table.Rows[0][4];
+            }
+            else
+            {
+                logger.Warn("Loging is unsuccessful;");
+                return -1;
+            }
+        }
+
+        public void SetCountOfGames(string login)
+        {
+            MySqlCommand command = new MySqlCommand("UPDATE `users` SET `countOfGames` = @countOfGames WHERE `users`.`login` = @login;", GetConnection());
+            int countOfGames = GetCountOfGames(login) + 1;
+            command.Parameters.Add("@countOfGames", MySqlDbType.VarChar).Value = countOfGames;
+            command.Parameters.Add("@login", MySqlDbType.VarChar).Value = login;
+
+            OpenConnection();
+            if (isConnectionOpen)
+            {
+                if (command.ExecuteNonQuery() == 1)
+                {
+                    logger.Info($"Set new count Of Games is successful - {countOfGames};");
+                }
+            }
+            else
+            {
+                logger.Warn("Set new count Of Games is unsuccessful;");
+                MessageBox.Show(@"Set new new count Of Games can't be completed. Please try again later!");
             }
 
             CloseConnection();
