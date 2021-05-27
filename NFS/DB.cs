@@ -81,6 +81,7 @@ namespace NFS
             if (command.ExecuteNonQuery() == 1)
             {
                 logger.Info("Email change is successful;");
+                
                 MessageBox.Show(@"Email change has been completed");
             }
             else

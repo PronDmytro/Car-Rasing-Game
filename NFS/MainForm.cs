@@ -17,6 +17,8 @@ namespace NFS
         private static Logger logger = LogManager.GetCurrentClassLogger();
         public string login;
         public string password;
+
+
         public MainForm(string login, string password)
         {
             InitializeComponent();
@@ -24,10 +26,21 @@ namespace NFS
             this.password = password;
             logger.Info("Data transfer is successful;");
         }
+        private const int CP_NOCLOSE_BUTTON = 0x200;
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams myCp = base.CreateParams;
+                myCp.ClassStyle = myCp.ClassStyle | CP_NOCLOSE_BUTTON;
+                return myCp;
+            }
+        }
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
             logger.Info("Exit btn is clicked;");
+            logger.Info("Exit From Application;");
             Application.Exit();
         }
         private void StatisticButton_Click(object sender, EventArgs e)
@@ -43,18 +56,22 @@ namespace NFS
         {
             logger.Info("Settings btn is clicked;");
             this.Hide();
-            using (SettingsForm settingsForm = new SettingsForm())
-            {
-                settingsForm.login = login;
-                settingsForm.password = password;
-                logger.Info("Open SettingsForm;");
-                var result = settingsForm.ShowDialog();
+            using SettingsForm settingsForm = new SettingsForm {login = this.login, password = this.password};
+            logger.Info("Open SettingsForm;");
+            var result = settingsForm.ShowDialog();
 
-                if (result == DialogResult.OK)
-                {
-                   this.Show();
-                   logger.Info("Show MainForm;");
-                }
+            if (result == DialogResult.OK)
+            {
+                this.Show();
+                logger.Info("Show MainForm;");
+            }
+            else if(result == DialogResult.No)
+            {
+                LoginForm loginForm = new LoginForm();
+
+                loginForm.Show();
+                this.Close();
+                logger.Info("LoginForm is open;\n");
             }
         }
 
@@ -80,8 +97,7 @@ namespace NFS
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            logger.Info("Exit From Application;");
-            Application.Exit();
+            logger.Info("Exit From MainForm;");
         }
     }
 }

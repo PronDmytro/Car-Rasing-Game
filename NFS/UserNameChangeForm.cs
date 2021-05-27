@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using NLog;
 
 namespace NFS
 {
     public partial class UserNameChangeForm : Form
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         public string login;
         public string password;
         public UserNameChangeForm()
@@ -29,14 +31,26 @@ namespace NFS
                 OkButton.Enabled = true;
             }
         }
+        private const int CP_NOCLOSE_BUTTON = 0x200;
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams myCp = base.CreateParams;
+                myCp.ClassStyle = myCp.ClassStyle | CP_NOCLOSE_BUTTON;
+                return myCp;
+            }
+        }
         private void NoButton_Click(object sender, EventArgs e)
         {
+            logger.Info("UserNameChange is cancel;");
             this.DialogResult = DialogResult.No;
             Close();
         }
 
         private void OkButton_Click(object sender, EventArgs e)
         {
+            logger.Info("UserNameChange is confim;");
             if (password != confirmPassField.Text)
             {
                 MessageBox.Show(@"Incorrect password");
@@ -84,6 +98,11 @@ namespace NFS
                 confirmPassField.Text = @"Confirm Password";
                 confirmPassField.ForeColor = SystemColors.WindowFrame;
             }
+        }
+
+        private void UserNameChangeForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            logger.Info("Exit from UserNameChangeForm;");
         }
     }
 }

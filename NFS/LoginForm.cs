@@ -14,9 +14,20 @@ namespace NFS
             InitializeComponent();
             
         }
-
+        private const int CP_NOCLOSE_BUTTON = 0x200;
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams myCp = base.CreateParams;
+                myCp.ClassStyle = myCp.ClassStyle | CP_NOCLOSE_BUTTON;
+                return myCp;
+            }
+        }
         private void LabelClose_Click(object sender, EventArgs e)
         {
+            logger.Info("LabelClose is clicked;");
+            logger.Info("Exit From Application;");
             Application.Exit();
         }
 
@@ -47,10 +58,11 @@ namespace NFS
             {
                 return;
             }
+            logger.Info($"{loginField.Text} is entered itno the account");
             logger.Info("Open MainForm");
-            MainForm form = new MainForm(this.loginField.Text, this.passField.Text);
-            this.Hide();
-            form.ShowDialog();
+            MainForm mainFormform = new MainForm(this.loginField.Text, this.passField.Text);
+            this.Close();
+            mainFormform.ShowDialog();
         }
 
         private void LoginField_Enter(object sender, EventArgs e)
@@ -117,6 +129,7 @@ namespace NFS
 
         private void ForgotPassLabel_Click(object sender, EventArgs e)
         {
+            logger.Info("Click on ForgotPassLabel;");
             DB db = new DB();
             int req = db.IsUserExist(loginField.Text);
 
@@ -150,10 +163,9 @@ namespace NFS
             logger.Info("Open RegisterForm;\n");
         }
 
-        private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
+        private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             logger.Info("Exit From LoginForm;");
-            //Application.Exit();
         }
     }
 }

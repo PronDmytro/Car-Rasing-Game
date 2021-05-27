@@ -83,6 +83,7 @@ namespace NFS
             this.confirmPassField.Size = new System.Drawing.Size(297, 33);
             this.confirmPassField.TabIndex = 17;
             this.confirmPassField.Text = "Confirm Password";
+            this.confirmPassField.TextChanged += new System.EventHandler(this.CheckFields);
             this.confirmPassField.Enter += new System.EventHandler(this.ConfirmPassField_Enter);
             this.confirmPassField.Leave += new System.EventHandler(this.ConfirmPassField_Leave);
             // 
@@ -135,6 +136,7 @@ namespace NFS
             this.emailField.Size = new System.Drawing.Size(297, 33);
             this.emailField.TabIndex = 1;
             this.emailField.Text = "New Email";
+            this.emailField.TextChanged += new System.EventHandler(this.CheckFields);
             this.emailField.Enter += new System.EventHandler(this.EmailField_Enter);
             this.emailField.Leave += new System.EventHandler(this.EmailField_Leave);
             // 
@@ -165,10 +167,10 @@ namespace NFS
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "EmailChangeForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EmailChangeForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EmailChangeForm_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

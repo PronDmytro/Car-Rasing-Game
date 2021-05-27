@@ -7,29 +7,43 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using NLog;
 
 namespace NFS
 {
     public partial class PasswordChangeForm : Form
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+
         public string login;
         public string password;
         public PasswordChangeForm()
         {
             InitializeComponent();
         }
-
+        private const int CP_NOCLOSE_BUTTON = 0x200;
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams myCp = base.CreateParams;
+                myCp.ClassStyle = myCp.ClassStyle | CP_NOCLOSE_BUTTON;
+                return myCp;
+            }
+        }
         private void OkButton_Click(object sender, EventArgs e)
         {
-
+            logger.Info("PasswordChange is confim;");
             if (password != passField.Text)
             {
+                logger.Warn("PasswordChange not successful because incorrect password;");
                 MessageBox.Show(@"Incorrect password!");
                 return;
             }
 
             if (password == newPassField.Text)
             {
+                logger.Warn("PasswordChange not successful because the new password matches the old one;");
                 MessageBox.Show(@"The new password matches the old one!");
                 return;
             }
@@ -41,6 +55,7 @@ namespace NFS
 
         private void NoButton_Click(object sender, EventArgs e)
         {
+            logger.Info("PasswordChange is cancel;");
             this.DialogResult = DialogResult.No;
             Close();
         }
@@ -129,6 +144,9 @@ namespace NFS
             }
         }
 
-      
+        private void PasswordChangeForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            logger.Info("Exit From PasswordChangeForm;");
+        }
     }
 }
