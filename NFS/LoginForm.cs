@@ -58,7 +58,7 @@ namespace NFS
             {
                 return;
             }
-            logger.Info($"{loginField.Text} is entered itno the account");
+            logger.Info($"{loginField.Text} is entered into the account");
             logger.Info("Open MainForm");
             MainForm mainFormform = new MainForm(this.loginField.Text, this.passField.Text);
             this.Close();

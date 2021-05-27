@@ -16,6 +16,7 @@ namespace NFS
 
         private void ReturnButton_Click(object sender, EventArgs e)
         {
+            logger.Info("Return btn is click;");
             this.DialogResult = DialogResult.OK;
             Close();
         }
