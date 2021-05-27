@@ -5,7 +5,6 @@ using NFS.Properties;
 
 namespace NFS
 {
-   
     public partial class Game : Form
     {
     public class Player
