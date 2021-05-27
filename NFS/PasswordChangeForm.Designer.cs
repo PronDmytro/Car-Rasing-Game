@@ -89,7 +89,7 @@ namespace NFS
             this.confirmNewPassField.Text = "Confirm New Password";
             this.confirmNewPassField.TextChanged += new System.EventHandler(this.CheckPassFields);
             this.confirmNewPassField.Enter += new System.EventHandler(this.ConfirmNewPassField_Enter);
-            this.confirmNewPassField.Leave += new System.EventHandler(this.confirmNewPassField_Leave);
+            this.confirmNewPassField.Leave += new System.EventHandler(this.ConfirmNewPassField_Leave);
             // 
             // passErrorLabel
             // 

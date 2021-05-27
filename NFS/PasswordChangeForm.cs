@@ -50,6 +50,7 @@ namespace NFS
             this.DialogResult = DialogResult.OK;
             DB db = new DB();
             db.SetPassword(login, newPassField.Text);
+            password = newPassField.Text;
             Close();
         }
 
@@ -93,6 +94,7 @@ namespace NFS
                 passField.Text = @"Password";
                 passField.ForeColor = SystemColors.WindowFrame;
 
+                OkButton.Enabled = false;
                 passErrorLabel.Visible = false;
                 passErrorPicture.Visible = false;
             }
@@ -116,6 +118,7 @@ namespace NFS
                 newPassField.Text = @"New Password";
                 newPassField.ForeColor = SystemColors.WindowFrame;
 
+                OkButton.Enabled = false;
                 passErrorLabel.Visible = false;
                 passErrorPicture.Visible = false;
             }
@@ -131,7 +134,7 @@ namespace NFS
             }
         }
 
-        private void confirmNewPassField_Leave(object sender, EventArgs e)
+        private void ConfirmNewPassField_Leave(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(confirmNewPassField.Text))
             {
@@ -139,6 +142,7 @@ namespace NFS
                 confirmNewPassField.Text = @"Confirm New Password";
                 confirmNewPassField.ForeColor = SystemColors.WindowFrame;
 
+                OkButton.Enabled = false;
                 passErrorLabel.Visible = false;
                 passErrorPicture.Visible = false;
             }
