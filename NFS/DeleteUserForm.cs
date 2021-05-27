@@ -28,13 +28,24 @@ namespace NFS
         }
         private void OkButton_Click(object sender, EventArgs e)
         {
-           
-            logger.Info(";");
-            DB db = new DB();
-            db.DeleteUser(login);
-            Settings.Default.pass = "";
-            Settings.Default.login = "";
-            this.DialogResult = DialogResult.Yes;
+            const MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result =
+                MessageBox.Show($@"Do you really want delete account???{Environment.NewLine}All data will be deleted!{Environment.NewLine}Continue?",
+                    @"Account Deleting", buttons);
+            if (result == DialogResult.Yes)
+            {
+                logger.Info("User deleting;");
+                DB db = new DB();
+                db.DeleteUser(login);
+                Settings.Default.pass = "";
+                Settings.Default.login = "";
+                this.DialogResult = DialogResult.Yes;
+            }
+            else if (result == DialogResult.No)
+            {
+                logger.Info("Account Deleting not accepted; ");
+            }
+
         }
 
         private void NoButton_Click(object sender, EventArgs e)

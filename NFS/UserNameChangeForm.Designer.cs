@@ -81,7 +81,7 @@ namespace NFS
             this.confirmPassField.MaxLength = 18;
             this.confirmPassField.Name = "confirmPassField";
             this.confirmPassField.Size = new System.Drawing.Size(297, 33);
-            this.confirmPassField.TabIndex = 17;
+            this.confirmPassField.TabIndex = 2;
             this.confirmPassField.Text = "Confirm Password";
             this.confirmPassField.TextChanged += new System.EventHandler(this.CheckFields);
             this.confirmPassField.Enter += new System.EventHandler(this.ConfirmPassField_Enter);
@@ -107,7 +107,7 @@ namespace NFS
             this.OkButton.Location = new System.Drawing.Point(243, 287);
             this.OkButton.Name = "OkButton";
             this.OkButton.Size = new System.Drawing.Size(164, 36);
-            this.OkButton.TabIndex = 7;
+            this.OkButton.TabIndex = 4;
             this.OkButton.Text = "Confirm";
             this.OkButton.UseVisualStyleBackColor = false;
             this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
@@ -121,7 +121,7 @@ namespace NFS
             this.NoButton.Location = new System.Drawing.Point(40, 287);
             this.NoButton.Name = "NoButton";
             this.NoButton.Size = new System.Drawing.Size(164, 36);
-            this.NoButton.TabIndex = 6;
+            this.NoButton.TabIndex = 3;
             this.NoButton.Text = "Cancel";
             this.NoButton.UseVisualStyleBackColor = false;
             this.NoButton.Click += new System.EventHandler(this.NoButton_Click);
