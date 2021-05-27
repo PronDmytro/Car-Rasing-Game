@@ -65,7 +65,6 @@ namespace NFS
                 MessageBox.Show(@"Password change can't be completed. Please try again later!");
             }
 
-
             db.CloseConnection();
         }
         public void SetEmail(string oldEmail, string newEmail)
@@ -90,12 +89,10 @@ namespace NFS
                 MessageBox.Show(@"Email change can't be completed. Please try again later!");
             }
 
-
             CloseConnection();
         }
         public void SetName(string email, string newName)
         {
-            
             MySqlCommand command = new MySqlCommand("UPDATE `users` SET `name` = @nameNew WHERE `users`.`login` = @login;", GetConnection());
 
             command.Parameters.Add("@nameNew", MySqlDbType.VarChar).Value = newName;
@@ -114,7 +111,6 @@ namespace NFS
                 logger.Warn("Name change is unsuccessful;");
                 MessageBox.Show(@"Name change can't be completed. Please try again later!");
             }
-
 
             CloseConnection();
         }
@@ -143,6 +139,26 @@ namespace NFS
             CloseConnection();
         }
 
+        public void DeleteUser(string login)
+        {
+            MySqlCommand command = new MySqlCommand("DELETE FROM `users` WHERE `users`.`login` = @login;", GetConnection());
+
+            command.Parameters.Add("@login", MySqlDbType.VarChar).Value = login;
+
+            OpenConnection();
+
+            if (command.ExecuteNonQuery() == 1)
+            {
+                logger.Info("User account deleting is successful;");
+                MessageBox.Show(@"User account delete has been completed");
+            }
+            else
+            {
+                logger.Warn("User account deleting is unsuccessful;");
+                MessageBox.Show(@"User account delete can't be completed. Please try again later!");
+            }
+            CloseConnection();
+        }
         public int IsLogin(string emailField, string passField)
         {
 
