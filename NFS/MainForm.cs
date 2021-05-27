@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using NLog;
-
+using NFS.Properties;
 namespace NFS
 {
     
@@ -12,11 +12,9 @@ namespace NFS
         public string password;
 
 
-        public MainForm(string login, string password)
+        public MainForm()
         {
             InitializeComponent();
-            this.login = login;
-            this.password = password;
             logger.Info("Data transfer is successful;");
         }
         private const int CP_NOCLOSE_BUTTON = 0x200;
@@ -49,7 +47,7 @@ namespace NFS
         {
             logger.Info("Settings btn is clicked;");
             this.Hide();
-            using SettingsForm settingsForm = new SettingsForm {login = this.login, password = this.password};
+            using SettingsForm settingsForm = new SettingsForm {};
             logger.Info("Open SettingsForm;");
             var result = settingsForm.ShowDialog();
 

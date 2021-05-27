@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Drawing;
 using System.Windows.Forms;
+using NFS.Properties;
 using NLog;
 
 namespace NFS
@@ -60,7 +61,10 @@ namespace NFS
             }
             logger.Info($"{loginField.Text} is entered into the account");
             logger.Info("Open MainForm");
-            MainForm mainFormform = new MainForm(this.loginField.Text, this.passField.Text);
+            Settings.Default.login = loginField.Text;
+            Settings.Default.pass = passField.Text;
+            MainForm mainFormform = new MainForm();
+            
             this.Close();
             mainFormform.ShowDialog();
         }

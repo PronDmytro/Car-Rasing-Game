@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Drawing;
 using System.Windows.Forms;
+using NFS.Properties;
 using NLog;
 
 namespace NFS
@@ -143,7 +144,9 @@ namespace NFS
             }
             
             db.AddUser(emailField.Text, passField.Text, userNameField.Text);
-            MainForm form = new MainForm(this.emailField.Text, this.passField.Text);
+            Settings.Default.login = emailField.Text;
+            Settings.Default.pass = passField.Text;
+            MainForm form = new MainForm();
             this.Hide();
             form.ShowDialog();
             logger.Info("Open MainForm;");

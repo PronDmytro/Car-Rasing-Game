@@ -57,6 +57,7 @@ namespace NFS
             this.label1.TabIndex = 1;
             this.label1.Text = "Change Password";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // panel1
             // 
@@ -75,6 +76,7 @@ namespace NFS
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(451, 357);
             this.panel1.TabIndex = 2;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // confirmNewPassField
             // 
@@ -102,6 +104,7 @@ namespace NFS
             this.passErrorLabel.TabIndex = 20;
             this.passErrorLabel.Text = "The passwords fields do not match";
             this.passErrorLabel.Visible = false;
+            this.passErrorLabel.Click += new System.EventHandler(this.passErrorLabel_Click);
             // 
             // passErrorPicture
             // 
@@ -113,6 +116,7 @@ namespace NFS
             this.passErrorPicture.TabIndex = 19;
             this.passErrorPicture.TabStop = false;
             this.passErrorPicture.Visible = false;
+            this.passErrorPicture.Click += new System.EventHandler(this.passErrorPicture_Click);
             // 
             // newPassField
             // 
@@ -140,6 +144,7 @@ namespace NFS
             this.passField.Size = new System.Drawing.Size(297, 33);
             this.passField.TabIndex = 16;
             this.passField.Text = "Password";
+            this.passField.TextChanged += new System.EventHandler(this.passField_TextChanged);
             this.passField.Enter += new System.EventHandler(this.PassField_Enter);
             this.passField.Leave += new System.EventHandler(this.PassField_Leave);
             // 
@@ -152,6 +157,7 @@ namespace NFS
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 18;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // OkButton
             // 
@@ -190,6 +196,7 @@ namespace NFS
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(451, 75);
             this.panel2.TabIndex = 1;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // PasswordChangeForm
             // 

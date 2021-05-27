@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Drawing;
 using System.Windows.Forms;
+using NFS.Properties;
 using NLog;
 
 namespace NFS
@@ -9,8 +10,8 @@ namespace NFS
     public partial class EmailChangeForm : Form
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
-        public string login;
-        public string password;
+        public string login = Settings.Default.login;
+        public string password = Settings.Default.pass;
         public EmailChangeForm()
         {
             InitializeComponent();
@@ -36,7 +37,7 @@ namespace NFS
             this.DialogResult = DialogResult.OK;
             DB db = new DB();
             db.SetEmail(login, emailField.Text);
-            login = emailField.Text;
+            Settings.Default.login = emailField.Text;
             Close();
         }
         private void NoButton_Click(object sender, EventArgs e)

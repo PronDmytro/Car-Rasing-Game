@@ -2,14 +2,15 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using NFS.Properties;
 
 namespace NFS
 {
     public partial class UserNameChangeForm : Form
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
-        public string login;
-        public string password;
+        public string login = Settings.Default.login;
+        public string password = Settings.Default.pass;
         public UserNameChangeForm()
         {
             InitializeComponent();

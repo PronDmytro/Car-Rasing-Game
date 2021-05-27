@@ -32,12 +32,12 @@ namespace NFS
             this.label1 = new System.Windows.Forms.Label();
             this.returnButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.deleteUserAccountButton = new System.Windows.Forms.Button();
+            this.logOutButton = new System.Windows.Forms.Button();
             this.changeUsernameButton = new System.Windows.Forms.Button();
             this.changeEmailButton = new System.Windows.Forms.Button();
             this.changePassButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.logOutButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -72,7 +72,7 @@ namespace NFS
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.BackColor = System.Drawing.Color.PapayaWhip;
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.deleteUserAccountButton);
             this.panel1.Controls.Add(this.logOutButton);
             this.panel1.Controls.Add(this.changeUsernameButton);
             this.panel1.Controls.Add(this.changeEmailButton);
@@ -83,6 +83,34 @@ namespace NFS
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(451, 497);
             this.panel1.TabIndex = 2;
+            // 
+            // deleteUserAccountButton
+            // 
+            this.deleteUserAccountButton.BackColor = System.Drawing.Color.DarkOrange;
+            this.deleteUserAccountButton.FlatAppearance.BorderSize = 0;
+            this.deleteUserAccountButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteUserAccountButton.Font = new System.Drawing.Font("Roboto", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.deleteUserAccountButton.Location = new System.Drawing.Point(40, 309);
+            this.deleteUserAccountButton.Name = "deleteUserAccountButton";
+            this.deleteUserAccountButton.Size = new System.Drawing.Size(367, 36);
+            this.deleteUserAccountButton.TabIndex = 11;
+            this.deleteUserAccountButton.Text = "Delete user account";
+            this.deleteUserAccountButton.UseVisualStyleBackColor = false;
+            this.deleteUserAccountButton.Click += new System.EventHandler(this.DeleteUserAccountButton_Click);
+            // 
+            // logOutButton
+            // 
+            this.logOutButton.BackColor = System.Drawing.Color.DarkOrange;
+            this.logOutButton.FlatAppearance.BorderSize = 0;
+            this.logOutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.logOutButton.Font = new System.Drawing.Font("Roboto", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.logOutButton.Location = new System.Drawing.Point(40, 366);
+            this.logOutButton.Name = "logOutButton";
+            this.logOutButton.Size = new System.Drawing.Size(367, 36);
+            this.logOutButton.TabIndex = 10;
+            this.logOutButton.Text = "Log out";
+            this.logOutButton.UseVisualStyleBackColor = false;
+            this.logOutButton.Click += new System.EventHandler(this.LogOutButton_Click);
             // 
             // changeUsernameButton
             // 
@@ -135,33 +163,6 @@ namespace NFS
             this.panel2.Size = new System.Drawing.Size(451, 75);
             this.panel2.TabIndex = 1;
             // 
-            // logOutButton
-            // 
-            this.logOutButton.BackColor = System.Drawing.Color.DarkOrange;
-            this.logOutButton.FlatAppearance.BorderSize = 0;
-            this.logOutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.logOutButton.Font = new System.Drawing.Font("Roboto", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.logOutButton.Location = new System.Drawing.Point(40, 366);
-            this.logOutButton.Name = "logOutButton";
-            this.logOutButton.Size = new System.Drawing.Size(367, 36);
-            this.logOutButton.TabIndex = 10;
-            this.logOutButton.Text = "Log out";
-            this.logOutButton.UseVisualStyleBackColor = false;
-            this.logOutButton.Click += new System.EventHandler(this.LogOutButton_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.DarkOrange;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Roboto", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(40, 309);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(367, 36);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Delete user account";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -187,7 +188,7 @@ namespace NFS
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button changeUsernameButton;
         private System.Windows.Forms.Button changeEmailButton;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button deleteUserAccountButton;
         private System.Windows.Forms.Button logOutButton;
     }
 }
