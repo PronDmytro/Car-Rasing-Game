@@ -83,6 +83,7 @@ namespace NFS
             this.confirmPassField.Size = new System.Drawing.Size(297, 33);
             this.confirmPassField.TabIndex = 17;
             this.confirmPassField.Text = "Confirm Password";
+            this.confirmPassField.TextChanged += new System.EventHandler(this.CheckFields);
             this.confirmPassField.Enter += new System.EventHandler(this.ConfirmPassField_Enter);
             this.confirmPassField.Leave += new System.EventHandler(this.ConfirmPassField_Leave);
             // 

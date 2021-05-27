@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using NLog;
+using System;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using NLog;
 
 namespace NFS
 {
@@ -26,7 +20,8 @@ namespace NFS
             {
                 OkButton.Enabled = false;
             }
-            else
+            else if (confirmPassField.Text != "" && confirmPassField.Text != @"Confirm Password" &&
+                     nameField.Text != "" && nameField.Text != @"New Name")
             {
                 OkButton.Enabled = true;
             }
