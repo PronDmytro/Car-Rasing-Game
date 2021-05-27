@@ -36,6 +36,7 @@ namespace NFS
             this.DialogResult = DialogResult.OK;
             DB db = new DB();
             db.SetEmail(login, emailField.Text);
+            login = emailField.Text;
             Close();
         }
         private void NoButton_Click(object sender, EventArgs e)
