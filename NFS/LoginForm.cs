@@ -12,7 +12,6 @@ namespace NFS
         public LoginForm()
         {
             InitializeComponent();
-            
         }
         private const int CP_NOCLOSE_BUTTON = 0x200;
         protected override CreateParams CreateParams
@@ -33,13 +32,14 @@ namespace NFS
 
         private void CheckFields()
         {
-            if (loginField.Text == "" || passField.Text == "" || !new EmailAddressAttribute().IsValid(loginField.Text))
+            if (loginField.Text != "" && loginField.Text != @"Email" && passField.Text != "" &&
+                passField.Text != @"Password" && new EmailAddressAttribute().IsValid(loginField.Text)) 
             {
-                ButtonLogin.Enabled = false;
+                ButtonLogin.Enabled = true;
             }
             else
             {
-                ButtonLogin.Enabled = true;
+                ButtonLogin.Enabled = false;
             }
         }
         private void ButtonLogin_Click(object sender, EventArgs e)
@@ -108,7 +108,6 @@ namespace NFS
 
         private void LoginField_TextChanged(object sender, EventArgs e)
         {
-
             CheckFields();
             if (!new EmailAddressAttribute().IsValid(loginField.Text) && loginField.Text != "")
             {
