@@ -8,14 +8,10 @@ namespace NFS
     public partial class MainForm : Form
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
-        public string login;
-        public string password;
-
 
         public MainForm()
         {
             InitializeComponent();
-            logger.Info("Data transfer is successful;");
         }
         private const int CP_NOCLOSE_BUTTON = 0x200;
         protected override CreateParams CreateParams
@@ -73,7 +69,7 @@ namespace NFS
             logger.Info("MainForm is Hide;");
             using (Game game = new Game())
             {
-                game.player.login = login;
+                game.player.login = Settings.Default.login;
 
                 logger.Info("Open game window;");
                 var result = game.ShowDialog();

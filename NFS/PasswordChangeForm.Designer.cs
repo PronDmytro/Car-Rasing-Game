@@ -87,7 +87,7 @@ namespace NFS
             this.confirmNewPassField.MaxLength = 18;
             this.confirmNewPassField.Name = "confirmNewPassField";
             this.confirmNewPassField.Size = new System.Drawing.Size(297, 33);
-            this.confirmNewPassField.TabIndex = 21;
+            this.confirmNewPassField.TabIndex = 3;
             this.confirmNewPassField.Text = "Confirm New Password";
             this.confirmNewPassField.TextChanged += new System.EventHandler(this.CheckPassFields);
             this.confirmNewPassField.Enter += new System.EventHandler(this.ConfirmNewPassField_Enter);
@@ -127,7 +127,7 @@ namespace NFS
             this.newPassField.MaxLength = 18;
             this.newPassField.Name = "newPassField";
             this.newPassField.Size = new System.Drawing.Size(297, 33);
-            this.newPassField.TabIndex = 17;
+            this.newPassField.TabIndex = 2;
             this.newPassField.Text = "New Password";
             this.newPassField.TextChanged += new System.EventHandler(this.CheckPassFields);
             this.newPassField.Enter += new System.EventHandler(this.NewPassField_Enter);
@@ -142,7 +142,7 @@ namespace NFS
             this.passField.MaxLength = 18;
             this.passField.Name = "passField";
             this.passField.Size = new System.Drawing.Size(297, 33);
-            this.passField.TabIndex = 16;
+            this.passField.TabIndex = 1;
             this.passField.Text = "Password";
             this.passField.TextChanged += new System.EventHandler(this.passField_TextChanged);
             this.passField.Enter += new System.EventHandler(this.PassField_Enter);
@@ -169,7 +169,7 @@ namespace NFS
             this.OkButton.Location = new System.Drawing.Point(243, 281);
             this.OkButton.Name = "OkButton";
             this.OkButton.Size = new System.Drawing.Size(164, 36);
-            this.OkButton.TabIndex = 7;
+            this.OkButton.TabIndex = 5;
             this.OkButton.Text = "Confirm";
             this.OkButton.UseVisualStyleBackColor = false;
             this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
@@ -183,7 +183,7 @@ namespace NFS
             this.NoButton.Location = new System.Drawing.Point(40, 281);
             this.NoButton.Name = "NoButton";
             this.NoButton.Size = new System.Drawing.Size(164, 36);
-            this.NoButton.TabIndex = 6;
+            this.NoButton.TabIndex = 4;
             this.NoButton.Text = "Cancel";
             this.NoButton.UseVisualStyleBackColor = false;
             this.NoButton.Click += new System.EventHandler(this.NoButton_Click);

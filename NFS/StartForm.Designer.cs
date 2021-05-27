@@ -76,7 +76,7 @@ namespace NFS
             this.startButton.Location = new System.Drawing.Point(12, 76);
             this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(361, 35);
-            this.startButton.TabIndex = 6;
+            this.startButton.TabIndex = 1;
             this.startButton.Text = "Start";
             this.startButton.UseVisualStyleBackColor = false;
             this.startButton.Click += new System.EventHandler(this.StartButton_Click);

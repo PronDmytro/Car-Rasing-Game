@@ -124,7 +124,7 @@ namespace NFS
             this.ButtonLogin.Location = new System.Drawing.Point(40, 412);
             this.ButtonLogin.Name = "ButtonLogin";
             this.ButtonLogin.Size = new System.Drawing.Size(367, 36);
-            this.ButtonLogin.TabIndex = 6;
+            this.ButtonLogin.TabIndex = 3;
             this.ButtonLogin.Text = "Login";
             this.ButtonLogin.UseVisualStyleBackColor = false;
             this.ButtonLogin.Click += new System.EventHandler(this.ButtonLogin_Click);

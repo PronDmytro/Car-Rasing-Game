@@ -159,7 +159,7 @@ namespace NFS
             this.emailField.MaxLength = 32;
             this.emailField.Name = "emailField";
             this.emailField.Size = new System.Drawing.Size(297, 33);
-            this.emailField.TabIndex = 5;
+            this.emailField.TabIndex = 4;
             this.emailField.Text = "Email";
             this.emailField.TextChanged += new System.EventHandler(this.EmailField_TextChanged);
             this.emailField.Enter += new System.EventHandler(this.EmailField_Enter);
@@ -283,7 +283,7 @@ namespace NFS
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "RegisterForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RegisterForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RegisterForm_FormClosed);
             this.panel1.ResumeLayout(false);

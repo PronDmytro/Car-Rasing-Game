@@ -93,7 +93,7 @@ namespace NFS
             this.deleteUserAccountButton.Location = new System.Drawing.Point(40, 309);
             this.deleteUserAccountButton.Name = "deleteUserAccountButton";
             this.deleteUserAccountButton.Size = new System.Drawing.Size(367, 36);
-            this.deleteUserAccountButton.TabIndex = 11;
+            this.deleteUserAccountButton.TabIndex = 4;
             this.deleteUserAccountButton.Text = "Delete user account";
             this.deleteUserAccountButton.UseVisualStyleBackColor = false;
             this.deleteUserAccountButton.Click += new System.EventHandler(this.DeleteUserAccountButton_Click);
@@ -107,7 +107,7 @@ namespace NFS
             this.logOutButton.Location = new System.Drawing.Point(40, 366);
             this.logOutButton.Name = "logOutButton";
             this.logOutButton.Size = new System.Drawing.Size(367, 36);
-            this.logOutButton.TabIndex = 10;
+            this.logOutButton.TabIndex = 5;
             this.logOutButton.Text = "Log out";
             this.logOutButton.UseVisualStyleBackColor = false;
             this.logOutButton.Click += new System.EventHandler(this.LogOutButton_Click);
@@ -121,7 +121,7 @@ namespace NFS
             this.changeUsernameButton.Location = new System.Drawing.Point(40, 120);
             this.changeUsernameButton.Name = "changeUsernameButton";
             this.changeUsernameButton.Size = new System.Drawing.Size(367, 36);
-            this.changeUsernameButton.TabIndex = 9;
+            this.changeUsernameButton.TabIndex = 1;
             this.changeUsernameButton.Text = "Change username";
             this.changeUsernameButton.UseVisualStyleBackColor = false;
             this.changeUsernameButton.Click += new System.EventHandler(this.ChangeUsernameButton_Click);
@@ -135,7 +135,7 @@ namespace NFS
             this.changeEmailButton.Location = new System.Drawing.Point(40, 246);
             this.changeEmailButton.Name = "changeEmailButton";
             this.changeEmailButton.Size = new System.Drawing.Size(367, 36);
-            this.changeEmailButton.TabIndex = 8;
+            this.changeEmailButton.TabIndex = 3;
             this.changeEmailButton.Text = "Change email";
             this.changeEmailButton.UseVisualStyleBackColor = false;
             this.changeEmailButton.Click += new System.EventHandler(this.ChangeEmailButton_Click);
@@ -149,7 +149,7 @@ namespace NFS
             this.changePassButton.Location = new System.Drawing.Point(40, 186);
             this.changePassButton.Name = "changePassButton";
             this.changePassButton.Size = new System.Drawing.Size(367, 36);
-            this.changePassButton.TabIndex = 7;
+            this.changePassButton.TabIndex = 2;
             this.changePassButton.Text = "Change password";
             this.changePassButton.UseVisualStyleBackColor = false;
             this.changePassButton.Click += new System.EventHandler(this.ChangePassButton_Click);

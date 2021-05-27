@@ -62,7 +62,7 @@ namespace NFS
             this.exitButton.Location = new System.Drawing.Point(40, 416);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(367, 36);
-            this.exitButton.TabIndex = 6;
+            this.exitButton.TabIndex = 5;
             this.exitButton.Text = "Exit";
             this.exitButton.UseVisualStyleBackColor = false;
             this.exitButton.Click += new System.EventHandler(this.ExitButton_Click);
@@ -91,7 +91,7 @@ namespace NFS
             this.leaderboardButton.Location = new System.Drawing.Point(40, 177);
             this.leaderboardButton.Name = "leaderboardButton";
             this.leaderboardButton.Size = new System.Drawing.Size(367, 36);
-            this.leaderboardButton.TabIndex = 8;
+            this.leaderboardButton.TabIndex = 2;
             this.leaderboardButton.Text = "Leaderboard";
             this.leaderboardButton.UseVisualStyleBackColor = false;
             this.leaderboardButton.Click += new System.EventHandler(this.LeaderboardButton_Click);
@@ -102,10 +102,10 @@ namespace NFS
             this.settingsButton.FlatAppearance.BorderSize = 0;
             this.settingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.settingsButton.Font = new System.Drawing.Font("Roboto", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.settingsButton.Location = new System.Drawing.Point(40, 319);
+            this.settingsButton.Location = new System.Drawing.Point(40, 308);
             this.settingsButton.Name = "settingsButton";
             this.settingsButton.Size = new System.Drawing.Size(367, 36);
-            this.settingsButton.TabIndex = 7;
+            this.settingsButton.TabIndex = 4;
             this.settingsButton.Text = "Settings";
             this.settingsButton.UseVisualStyleBackColor = false;
             this.settingsButton.Click += new System.EventHandler(this.SettingsButton_Click);
@@ -119,7 +119,7 @@ namespace NFS
             this.statisticButton.Location = new System.Drawing.Point(40, 240);
             this.statisticButton.Name = "statisticButton";
             this.statisticButton.Size = new System.Drawing.Size(367, 36);
-            this.statisticButton.TabIndex = 2;
+            this.statisticButton.TabIndex = 3;
             this.statisticButton.Text = "Statistic";
             this.statisticButton.UseVisualStyleBackColor = false;
             this.statisticButton.Click += new System.EventHandler(this.StatisticButton_Click);
