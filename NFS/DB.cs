@@ -45,19 +45,19 @@ namespace NFS
 
         public void SetPassword(string user, string pass)
         {
-            DB db = new DB();
-            MySqlCommand command = new MySqlCommand("UPDATE `users` SET `pass` = @password WHERE `users`.`login` = @login;", db.GetConnection());
+            MySqlCommand command = new MySqlCommand("UPDATE `users` SET `pass` = @password WHERE `users`.`login` = @login;", GetConnection());
 
             command.Parameters.Add("@login", MySqlDbType.VarChar).Value = user;
             command.Parameters.Add("@password", MySqlDbType.VarChar).Value = pass;
 
-            db.OpenConnection();
-
-
-            if (command.ExecuteNonQuery() == 1)
+            OpenConnection();
+            if (isConnectionOpen)
             {
-                logger.Info("Password change is successful;");
-                MessageBox.Show(@"Password change has been completed");
+                if (command.ExecuteNonQuery() == 1)
+                {
+                    logger.Info("Password change is successful;");
+                    MessageBox.Show(@"Password change has been completed");
+                }
             }
             else
             {
@@ -65,7 +65,7 @@ namespace NFS
                 MessageBox.Show(@"Password change can't be completed. Please try again later!");
             }
 
-            db.CloseConnection();
+            CloseConnection();
         }
         public void SetEmail(string oldEmail, string newEmail)
         {
@@ -73,15 +73,16 @@ namespace NFS
 
             command.Parameters.Add("@loginNew", MySqlDbType.VarChar).Value = newEmail;
             command.Parameters.Add("@loginOld", MySqlDbType.VarChar).Value = oldEmail;
-
+            
             OpenConnection();
-
-
-            if (command.ExecuteNonQuery() == 1)
+            if (isConnectionOpen)
             {
-                logger.Info("Email change is successful;");
-                
-                MessageBox.Show(@"Email change has been completed");
+                if (command.ExecuteNonQuery() == 1)
+                {
+                    logger.Info("Email change is successful;");
+
+                    MessageBox.Show(@"Email change has been completed");
+                }
             }
             else
             {
@@ -97,10 +98,10 @@ namespace NFS
 
             command.Parameters.Add("@nameNew", MySqlDbType.VarChar).Value = newName;
             command.Parameters.Add("@login", MySqlDbType.VarChar).Value = email;
+
+            OpenConnection();
             if (isConnectionOpen)
             {
-                OpenConnection();
-
                 if (command.ExecuteNonQuery() == 1)
                 {
                     logger.Info("Name change is successful;");
@@ -122,14 +123,15 @@ namespace NFS
             command.Parameters.Add("@login", MySqlDbType.VarChar).Value = emailField;
             command.Parameters.Add("@password", MySqlDbType.VarChar).Value = passField;
             command.Parameters.Add("@name", MySqlDbType.VarChar).Value = userNameField;
-
+           
             OpenConnection();
-
-
-            if (command.ExecuteNonQuery() == 1)
+            if (isConnectionOpen)
             {
-                logger.Info("Registration is successful;");
-                MessageBox.Show(@"Registration has been completed");
+                if (command.ExecuteNonQuery() == 1)
+                {
+                    logger.Info("Registration is successful;");
+                    MessageBox.Show(@"Registration has been completed");
+                }
             }
             else
             {
@@ -139,7 +141,6 @@ namespace NFS
 
             CloseConnection();
         }
-
         public void DeleteUser(string login)
         {
             MySqlCommand command = new MySqlCommand("DELETE FROM `users` WHERE `users`.`login` = @login;", GetConnection());
@@ -147,11 +148,13 @@ namespace NFS
             command.Parameters.Add("@login", MySqlDbType.VarChar).Value = login;
 
             OpenConnection();
-
-            if (command.ExecuteNonQuery() == 1)
+            if (isConnectionOpen)
             {
-                logger.Info("User account deleting is successful;");
-                MessageBox.Show(@"User account delete has been completed");
+                if (command.ExecuteNonQuery() == 1)
+                {
+                    logger.Info("User account deleting is successful;");
+                    MessageBox.Show(@"User account delete has been completed");
+                }
             }
             else
             {
@@ -230,6 +233,30 @@ namespace NFS
                 logger.Info("User isn't exist;");
                 return 0;
             }
+        }
+
+        public void SetScore(string login, int score)
+        {
+            MySqlCommand command = new MySqlCommand("UPDATE `users` SET `record`=IF(`record`<@score,@score,`record`)WHERE `users`.`login` = @login;", GetConnection());
+
+            command.Parameters.Add("@score", MySqlDbType.VarChar).Value = score;
+            command.Parameters.Add("@login", MySqlDbType.VarChar).Value = login;
+
+            OpenConnection();
+            if (isConnectionOpen)
+            {
+                if (command.ExecuteNonQuery() == 1)
+                {
+                    logger.Info("Set new score is successful;");
+                }
+            }
+            else
+            {
+                logger.Warn("Set new score is unsuccessful;");
+                MessageBox.Show(@"Set new score can't be completed. Please try again later!");
+            }
+
+            CloseConnection();
         }
     }
 }

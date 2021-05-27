@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using NFS.Properties;
+using NLog;
 
 namespace NFS
 {
@@ -39,9 +40,10 @@ namespace NFS
         private Random rand = new Random();
         private Random carPosition = new Random();
 
-
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         public Game()
         {
+            logger.Info("Game is start;");
             InitializeComponent();
             ResetGame();
         }
@@ -173,6 +175,11 @@ namespace NFS
 
         private void GameOver()
         {
+            logger.Info("Game over;");
+            DB db = new DB();
+            logger.Info($"Set new score - { player.score} to {player.login};");
+            db.SetScore(player.login, player.score);
+
             PlaySound();
             gameTimer.Stop();
             explosion.Visible = true;
