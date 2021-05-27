@@ -170,10 +170,11 @@ namespace NFS
                 errorPicture.Visible = false;
             }
         }
-        private void CheckPassFields(object sender, EventArgs e)
+
+        private void CheckFields(object sender, EventArgs e)
         {
             if (confirmPassField.Text != passField.Text && passField.UseSystemPasswordChar &&
-                confirmPassField.UseSystemPasswordChar) 
+                confirmPassField.UseSystemPasswordChar)
             {
                 ButtonRegister.Enabled = false;
 
@@ -185,17 +186,16 @@ namespace NFS
                 passErrorLabel.Visible = false;
                 passErrorPicture.Visible = false;
             }
-        }
-        private void CheckFields(object sender, EventArgs e)
-        {
-            
-            if (emailField.Text == "" || passField.Text == "" || confirmPassField.Text == "" || userNameField.Text =="" ||!new EmailAddressAttribute().IsValid(emailField.Text))
+            if (emailField.Text != "" && emailField.Text != @"Email" && passField.Text != "" &&
+                passField.Text != @"Password" && confirmPassField.Text != "" &&
+                confirmPassField.Text != @"Confirm Password" && userNameField.Text != "" &&
+                userNameField.Text != @"Name" && new EmailAddressAttribute().IsValid(emailField.Text)) 
             {
-                ButtonRegister.Enabled = false;
+                ButtonRegister.Enabled = true;
             }
             else
             {
-                ButtonRegister.Enabled = true;
+                ButtonRegister.Enabled = false;
             }
         }
         

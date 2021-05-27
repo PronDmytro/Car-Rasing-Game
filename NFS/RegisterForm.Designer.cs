@@ -147,7 +147,7 @@ namespace NFS
             this.confirmPassField.Size = new System.Drawing.Size(297, 33);
             this.confirmPassField.TabIndex = 3;
             this.confirmPassField.Text = "Confirm Password";
-            this.confirmPassField.TextChanged += new System.EventHandler(this.CheckPassFields);
+            this.confirmPassField.TextChanged += new System.EventHandler(this.CheckFields);
             this.confirmPassField.Enter += new System.EventHandler(this.ConfirmPassField_Enter);
             this.confirmPassField.Leave += new System.EventHandler(this.ConfirmPassField_Leave);
             // 
@@ -200,7 +200,7 @@ namespace NFS
             this.passField.Size = new System.Drawing.Size(297, 33);
             this.passField.TabIndex = 2;
             this.passField.Text = "Password";
-            this.passField.TextChanged += new System.EventHandler(this.CheckPassFields);
+            this.passField.TextChanged += new System.EventHandler(this.CheckFields);
             this.passField.Enter += new System.EventHandler(this.PassField_Enter);
             this.passField.Leave += new System.EventHandler(this.PassField_Leave);
             // 
