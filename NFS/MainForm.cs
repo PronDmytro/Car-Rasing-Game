@@ -37,7 +37,18 @@ namespace NFS
 
         private void LeaderboardButton_Click(object sender, EventArgs e)
         {
+            logger.Info("Leaderboard btn is clicked;");
+            this.Hide();
+            logger.Info("MainForm is Hide;");
+            using LeaderboardForm leaderboardForm = new LeaderboardForm();
+            var result = leaderboardForm.ShowDialog();
+            logger.Info("Open leaderboardForm;");
 
+            if (result == DialogResult.OK)
+            {
+                this.Show();
+                logger.Info("Show MainForm;");
+            }
         }
         private void SettingsButton_Click(object sender, EventArgs e)
         {

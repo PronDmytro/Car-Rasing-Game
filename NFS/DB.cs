@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 using MySqlConnector;
@@ -11,7 +12,7 @@ namespace NFS
         private static Logger logger = LogManager.GetCurrentClassLogger();
         private bool isConnectionOpen = false;
         private MySqlConnection connection = new MySqlConnection("server=localhost;port=3306;username=root;password=root;database=nfs");
-
+        //private MySqlConnection connection = new MySqlConnection("server=http://127.0.0.1;port=29785;username=root;password=root;database=nfs");
         public void OpenConnection()
         {
             try
@@ -232,7 +233,6 @@ namespace NFS
                 return 0;
             }
         }
-
         public void SetScore(string login, int score)
         {
             MySqlCommand command = new MySqlCommand("UPDATE `users` SET `record`=IF(`record`<@score,@score,`record`)WHERE `users`.`login` = @login;", GetConnection());
@@ -256,7 +256,6 @@ namespace NFS
 
             CloseConnection();
         }
-
         public int GetCountOfGames(string login)
         {
             DataTable table = new DataTable();
@@ -289,7 +288,6 @@ namespace NFS
                 return -1;
             }
         }
-
         public void SetCountOfGames(string login)
         {
             MySqlCommand command = new MySqlCommand("UPDATE `users` SET `countOfGames` = @countOfGames WHERE `users`.`login` = @login;", GetConnection());
@@ -312,6 +310,39 @@ namespace NFS
             }
 
             CloseConnection();
+        }
+
+        public DataTable GetData()
+        {
+            DataTable table = new DataTable();
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+
+            MySqlCommand command = new MySqlCommand("SELECT * FROM `users` ORDER BY id", GetConnection());
+            
+            OpenConnection();
+            if (isConnectionOpen)
+            {
+                adapter.SelectCommand = command;
+                adapter.Fill(table);
+                CloseConnection();
+            }
+            else
+            {
+                logger.Warn("GetData is unsuccessful;");
+                CloseConnection();
+               
+            }
+            if (table.Rows.Count > 0)
+            {
+                logger.Info("GetData is successful;");
+                return table;
+            }
+            else
+            {
+                logger.Warn("GetData is unsuccessful;");
+                return table;
+            }
         }
     }
 }
