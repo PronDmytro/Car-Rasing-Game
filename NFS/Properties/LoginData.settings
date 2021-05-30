@@ -2,10 +2,10 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="NFS.Properties" GeneratedClassName="LoginData">
   <Profiles />
   <Settings>
-    <Setting Name="login" Type="System.String" Scope="Application">
+    <Setting Name="login" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="pass" Type="System.String" Scope="Application">
+    <Setting Name="pass" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
   </Settings>

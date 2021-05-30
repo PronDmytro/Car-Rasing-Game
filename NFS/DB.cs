@@ -12,9 +12,9 @@ namespace NFS
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
         private bool isConnectionOpen = false;
-        //private MySqlConnection connection = new MySqlConnection("server=localhost;port=3306;username=root;password=root;database=nfs");
-       private MySqlConnection connection = new MySqlConnection($"server={Settings.Default.server};port={Settings.Default.port};username={Settings.Default.username};password={Settings.Default.password};database={Settings.Default.database}");
-
+        private MySqlConnection connection = new MySqlConnection("server=localhost;port=3306;username=root;password=root;database=nfs");
+        //private MySqlConnection connection = new MySqlConnection($"server={Settings.Default.server};port={Settings.Default.port};username={Settings.Default.username};password={Settings.Default.password};database={Settings.Default.database}");
+        
         public void OpenConnection()
         {
             try

@@ -23,28 +23,26 @@ namespace NFS.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string login {
             get {
                 return ((string)(this["login"]));
             }
-            set
-            {
-                this["pass"] = value;
+            set {
+                this["login"] = value;
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string pass {
             get {
                 return ((string)(this["pass"]));
             }
-            set
-            {
+            set {
                 this["pass"] = value;
             }
         }
