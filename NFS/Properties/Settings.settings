@@ -3,19 +3,19 @@
   <Profiles />
   <Settings>
     <Setting Name="server" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">sql11.freemysqlhosting.net</Value>
+      <Value Profile="(Default)">remotemysql.com</Value>
     </Setting>
     <Setting Name="port" Type="System.String" Scope="Application">
       <Value Profile="(Default)">3306</Value>
     </Setting>
     <Setting Name="username" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">sql11415768</Value>
+      <Value Profile="(Default)">8UoHxJaPLi</Value>
     </Setting>
     <Setting Name="password" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">xGifD4g4yf</Value>
+      <Value Profile="(Default)">NPYSd79sgx</Value>
     </Setting>
     <Setting Name="database" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">sql11415768</Value>
+      <Value Profile="(Default)">8UoHxJaPLi</Value>
     </Setting>
     <Setting Name="email" Type="System.String" Scope="User">
       <Value Profile="(Default)">qazwsxedcrffv.11@gmail.com</Value>

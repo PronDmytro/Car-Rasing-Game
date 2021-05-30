@@ -25,7 +25,7 @@ namespace NFS.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("sql11.freemysqlhosting.net")]
+        [global::System.Configuration.DefaultSettingValueAttribute("remotemysql.com")]
         public string server {
             get {
                 return ((string)(this["server"]));
@@ -43,7 +43,7 @@ namespace NFS.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("sql11415768")]
+        [global::System.Configuration.DefaultSettingValueAttribute("8UoHxJaPLi")]
         public string username {
             get {
                 return ((string)(this["username"]));
@@ -52,7 +52,7 @@ namespace NFS.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("xGifD4g4yf")]
+        [global::System.Configuration.DefaultSettingValueAttribute("NPYSd79sgx")]
         public string password {
             get {
                 return ((string)(this["password"]));
@@ -61,7 +61,7 @@ namespace NFS.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("sql11415768")]
+        [global::System.Configuration.DefaultSettingValueAttribute("8UoHxJaPLi")]
         public string database {
             get {
                 return ((string)(this["database"]));
