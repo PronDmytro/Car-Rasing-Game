@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 using MySqlConnector;
+using NFS.Properties;
 using NLog;
 
 namespace NFS
@@ -11,28 +12,29 @@ namespace NFS
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
         private bool isConnectionOpen = false;
-        private MySqlConnection connection = new MySqlConnection("server=localhost;port=3306;username=root;password=root;database=nfs");
-        //private MySqlConnection connection = new MySqlConnection("server=http://127.0.0.1;port=29785;username=root;password=root;database=nfs");
+        //private MySqlConnection connection = new MySqlConnection("server=localhost;port=3306;username=root;password=root;database=nfs");
+       private MySqlConnection connection = new MySqlConnection($"server={Settings.Default.server};port={Settings.Default.port};username={Settings.Default.username};password={Settings.Default.password};database={Settings.Default.database}");
+
         public void OpenConnection()
         {
             try
             {
-                logger.Info("SQLITE open connection is successful;");
+                logger.Info("MYSQL open connection is successful;");
                 connection.Open();
                 isConnectionOpen = true;
             }
             catch (Exception ex)
             {
                 isConnectionOpen = false;
-                logger.Fatal($"SQLITE CONNECT ERROR : {ex.Message};");
-                MessageBox.Show("SQLITE CONNECT ERROR : " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                logger.Fatal($"MYSQL CONNECT ERROR : {ex.Message};");
+                MessageBox.Show("MYSQL CONNECT ERROR : " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public void CloseConnection()
         {
             if (connection.State == System.Data.ConnectionState.Open)
             {
-                logger.Info("SQLITE close connection is successful;");
+                logger.Info("MYSQL close connection is successful;");
                 connection.Close();
                 isConnectionOpen = false;
             }
@@ -261,7 +263,6 @@ namespace NFS
             DataTable table = new DataTable();
 
             MySqlDataAdapter adapter = new MySqlDataAdapter();
-
             MySqlCommand command = new MySqlCommand("SELECT * FROM `users` WHERE `login` = @uL;", GetConnection());
             command.Parameters.Add("@uL", MySqlDbType.VarChar).Value = login;
             OpenConnection();

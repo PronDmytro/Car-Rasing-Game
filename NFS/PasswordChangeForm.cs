@@ -10,8 +10,8 @@ namespace NFS
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
-        public string login = Settings.Default.login;
-        public string password = Settings.Default.pass;
+        public string login = LoginData.Default.login;
+        public string password = LoginData.Default.pass;
         public PasswordChangeForm()
         {
             InitializeComponent();
@@ -45,7 +45,7 @@ namespace NFS
             this.DialogResult = DialogResult.OK;
             DB db = new DB();
             db.SetPassword(login, newPassField.Text);
-            Settings.Default.pass = newPassField.Text;
+            LoginData.Default.pass = newPassField.Text;
             Close();
         }
 
@@ -148,39 +148,5 @@ namespace NFS
             logger.Info("Exit From PasswordChangeForm;");
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void passErrorLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void passErrorPicture_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void passField_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }

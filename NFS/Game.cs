@@ -79,8 +79,7 @@ namespace NFS
 
         private void GameTimerEvent(object sender, EventArgs e)
         {
-            txtScore.Text = player_box.Left.ToString();
-            //txtScore.Text = @"Score: " + player.score;
+            txtScore.Text = @"Score: " + player.score;
             player.score++;
 
             player.GoLeft(player_box);

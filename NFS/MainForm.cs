@@ -80,7 +80,7 @@ namespace NFS
             logger.Info("MainForm is Hide;");
             using (Game game = new Game())
             {
-                game.player.login = Settings.Default.login;
+                game.player.login = LoginData.Default.login;
 
                 logger.Info("Open game window;");
                 var result = game.ShowDialog();

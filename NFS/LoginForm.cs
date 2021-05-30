@@ -61,8 +61,8 @@ namespace NFS
             }
             logger.Info($"{loginField.Text} is entered into the account");
             logger.Info("Open MainForm");
-            Settings.Default.login = loginField.Text;
-            Settings.Default.pass = passField.Text;
+            LoginData.Default.login = loginField.Text;
+            LoginData.Default.pass = passField.Text;
             MainForm mainFormform = new MainForm();
             
             this.Close();

@@ -144,8 +144,8 @@ namespace NFS
             }
             
             db.AddUser(emailField.Text, passField.Text, userNameField.Text);
-            Settings.Default.login = emailField.Text;
-            Settings.Default.pass = passField.Text;
+            LoginData.Default.login = emailField.Text;
+            LoginData.Default.pass = passField.Text;
             MainForm form = new MainForm();
             this.Hide();
             form.ShowDialog();

@@ -10,8 +10,8 @@ namespace NFS
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
-        public string login = Settings.Default.login;
-        public string password = Settings.Default.pass;
+        public string login = LoginData.Default.login;
+        public string password = LoginData.Default.pass;
         public DeleteUserForm()
         {
             InitializeComponent();
@@ -37,8 +37,8 @@ namespace NFS
                 logger.Info("User deleting;");
                 DB db = new DB();
                 db.DeleteUser(login);
-                Settings.Default.pass = "";
-                Settings.Default.login = "";
+                LoginData.Default.pass = "";
+                LoginData.Default.login = "";
                 this.DialogResult = DialogResult.Yes;
             }
             else if (result == DialogResult.No)

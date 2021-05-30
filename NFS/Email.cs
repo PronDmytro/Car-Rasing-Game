@@ -2,6 +2,7 @@
 using System.Net;
 using System.Net.Mail;
 using System.Windows.Forms;
+using NFS.Properties;
 using NLog;
 
 namespace NFS
@@ -9,8 +10,8 @@ namespace NFS
     class Email
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
-        private const string AdminEmail = "qazwsxedcrffv.11@gmail.com";
-        private const string AdminEmailPass = "Qazwsxedcrfvtgbyhnujmikolp12";
+        private static string AdminEmail = $"{Settings.Default.email}";
+        private static string AdminEmailPass = $"{Settings.Default.emailPass}";
         private MailAddress from = new MailAddress(AdminEmail, "NFS");
         public void SendResetPassEmail(string userEmail, int restoreCode)
         {

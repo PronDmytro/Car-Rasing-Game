@@ -34,7 +34,6 @@ namespace NFS
             this.panel1 = new System.Windows.Forms.Panel();
             this.leaderboardButton = new System.Windows.Forms.Button();
             this.settingsButton = new System.Windows.Forms.Button();
-            this.statisticButton = new System.Windows.Forms.Button();
             this.startGameButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
@@ -73,7 +72,6 @@ namespace NFS
             this.panel1.BackColor = System.Drawing.Color.PapayaWhip;
             this.panel1.Controls.Add(this.leaderboardButton);
             this.panel1.Controls.Add(this.settingsButton);
-            this.panel1.Controls.Add(this.statisticButton);
             this.panel1.Controls.Add(this.startGameButton);
             this.panel1.Controls.Add(this.exitButton);
             this.panel1.Controls.Add(this.panel2);
@@ -88,7 +86,7 @@ namespace NFS
             this.leaderboardButton.FlatAppearance.BorderSize = 0;
             this.leaderboardButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.leaderboardButton.Font = new System.Drawing.Font("Roboto", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.leaderboardButton.Location = new System.Drawing.Point(40, 177);
+            this.leaderboardButton.Location = new System.Drawing.Point(40, 191);
             this.leaderboardButton.Name = "leaderboardButton";
             this.leaderboardButton.Size = new System.Drawing.Size(367, 36);
             this.leaderboardButton.TabIndex = 2;
@@ -102,27 +100,13 @@ namespace NFS
             this.settingsButton.FlatAppearance.BorderSize = 0;
             this.settingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.settingsButton.Font = new System.Drawing.Font("Roboto", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.settingsButton.Location = new System.Drawing.Point(40, 308);
+            this.settingsButton.Location = new System.Drawing.Point(40, 272);
             this.settingsButton.Name = "settingsButton";
             this.settingsButton.Size = new System.Drawing.Size(367, 36);
             this.settingsButton.TabIndex = 4;
             this.settingsButton.Text = "Settings";
             this.settingsButton.UseVisualStyleBackColor = false;
             this.settingsButton.Click += new System.EventHandler(this.SettingsButton_Click);
-            // 
-            // statisticButton
-            // 
-            this.statisticButton.BackColor = System.Drawing.Color.DarkOrange;
-            this.statisticButton.FlatAppearance.BorderSize = 0;
-            this.statisticButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.statisticButton.Font = new System.Drawing.Font("Roboto", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.statisticButton.Location = new System.Drawing.Point(40, 240);
-            this.statisticButton.Name = "statisticButton";
-            this.statisticButton.Size = new System.Drawing.Size(367, 36);
-            this.statisticButton.TabIndex = 3;
-            this.statisticButton.Text = "Statistic";
-            this.statisticButton.UseVisualStyleBackColor = false;
-            this.statisticButton.Click += new System.EventHandler(this.StatisticButton_Click);
             // 
             // startGameButton
             // 
@@ -174,7 +158,6 @@ namespace NFS
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button startGameButton;
         private System.Windows.Forms.Button exitButton;
-        private System.Windows.Forms.Button statisticButton;
         private System.Windows.Forms.Button leaderboardButton;
         private System.Windows.Forms.Button settingsButton;
     }

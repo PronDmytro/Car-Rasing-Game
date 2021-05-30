@@ -9,8 +9,8 @@ namespace NFS
     public partial class UserNameChangeForm : Form
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
-        public string login = Settings.Default.login;
-        public string password = Settings.Default.pass;
+        public string login = LoginData.Default.login;
+        public string password = LoginData.Default.pass;
         public UserNameChangeForm()
         {
             InitializeComponent();

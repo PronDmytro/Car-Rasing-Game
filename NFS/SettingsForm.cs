@@ -103,8 +103,8 @@ namespace NFS
             {
                 this.DialogResult = DialogResult.No;
                 logger.Info("LogOut accepted;");
-                Settings.Default.pass = "";
-                Settings.Default.login = "";
+                LoginData.Default.pass = "";
+                LoginData.Default.login = "";
             }
             else if (result == DialogResult.No)
             {
