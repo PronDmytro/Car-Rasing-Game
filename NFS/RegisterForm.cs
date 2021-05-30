@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
 using System.Drawing;
 using System.Windows.Forms;
 using NFS.Properties;
@@ -13,7 +12,7 @@ namespace NFS
         public RegisterForm()
         {
             InitializeComponent();
-            if (passField.Text == "" || passField.Text == ""||confirmPassField.Text==""||emailField.Text == ""|| !new EmailAddressAttribute().IsValid(passField.Text))
+            if (passField.Text == "" || passField.Text == ""||confirmPassField.Text==""||emailField.Text == ""|| !new Email().IsValidEmail(emailField.Text))
             {
                 ButtonRegister.Enabled = false;
             }
@@ -70,7 +69,6 @@ namespace NFS
 
         private void EmailField_Enter(object sender, EventArgs e)
         {
-            var foo = new EmailAddressAttribute();
 
             if (emailField.Text == @"Email")
             {
@@ -185,7 +183,7 @@ namespace NFS
             if (emailField.Text != "" && emailField.Text != @"Email" && passField.Text != "" &&
                 passField.Text != @"Password" && confirmPassField.Text != "" &&
                 confirmPassField.Text != @"Confirm Password" && userNameField.Text != "" &&
-                userNameField.Text != @"Name" && new EmailAddressAttribute().IsValid(emailField.Text)) 
+                userNameField.Text != @"Name" && new Email().IsValidEmail(emailField.Text)) 
             {
                 ButtonRegister.Enabled = true;
             }

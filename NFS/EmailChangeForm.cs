@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
 using System.Drawing;
 using System.Windows.Forms;
 using NFS.Properties;
@@ -91,11 +90,11 @@ namespace NFS
         private void CheckFields(object sender, EventArgs e)
         {
 
-            if (emailField.Text == "" || confirmPassField.Text == "" || !new EmailAddressAttribute().IsValid(emailField.Text))
+            if (emailField.Text == "" || confirmPassField.Text == "" || !new Email().IsValidEmail(emailField.Text))
             {
                 OkButton.Enabled = false;
             }
-            else if( confirmPassField.Text != @"Confirm Password" && emailField.Text != @"New Email" && new EmailAddressAttribute().IsValid(emailField.Text))
+            else if( confirmPassField.Text != @"Confirm Password" && emailField.Text != @"New Email" && new Email().IsValidEmail(emailField.Text))
             {
                 OkButton.Enabled = true;
             }

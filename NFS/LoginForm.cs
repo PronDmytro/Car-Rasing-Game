@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
 using System.Drawing;
 using System.Windows.Forms;
 using NFS.Properties;
@@ -34,7 +33,7 @@ namespace NFS
         private void CheckFields()
         {
             if (loginField.Text != "" && loginField.Text != @"Email" && passField.Text != "" &&
-                passField.Text != @"Password" && new EmailAddressAttribute().IsValid(loginField.Text)) 
+                passField.Text != @"Password" && new Email().IsValidEmail(loginField.Text)) 
             {
                 ButtonLogin.Enabled = true;
             }
@@ -113,7 +112,7 @@ namespace NFS
         private void LoginField_TextChanged(object sender, EventArgs e)
         {
             CheckFields();
-            if (!new EmailAddressAttribute().IsValid(loginField.Text) && loginField.Text != "")
+            if (!new Email().IsValidEmail(loginField.Text) && loginField.Text != "")
             {
                 errorLabel.Visible = true;
                 errorPicture.Visible = true;
