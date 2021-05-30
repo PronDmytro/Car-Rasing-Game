@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net;
 using System.Net.Mail;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using NFS.Properties;
 using NLog;
@@ -37,8 +38,19 @@ namespace NFS
             {
                 logger.Fatal($"Error email send: {e};");
             }
-            
-            
+        }
+        public bool IsValidEmail(string email)
+        {
+            const string pattern = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
+
+            if (Regex.IsMatch(email, pattern))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

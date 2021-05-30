@@ -8,8 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Resources\**" />
     <Compile Remove="res\**" />
+    <EmbeddedResource Remove="Resources\**" />
     <EmbeddedResource Remove="res\**" />
+    <None Remove="Resources\**" />
     <None Remove="res\**" />
   </ItemGroup>
 
@@ -43,10 +46,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Resources\" />
   </ItemGroup>
 
   <ItemGroup>

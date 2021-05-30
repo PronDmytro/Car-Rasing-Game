@@ -50,7 +50,6 @@ namespace NFS
 
         private void NoButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(login + password);
             this.DialogResult = DialogResult.No;
             Close();
         }

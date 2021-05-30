@@ -29,6 +29,7 @@ namespace NFS
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmailChangeForm));
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.confirmPassField = new System.Windows.Forms.TextBox();
@@ -166,10 +167,11 @@ namespace NFS
             this.ClientSize = new System.Drawing.Size(454, 347);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "EmailChangeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "EmailChangeForm";
+            this.Text = "Email Change";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EmailChangeForm_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

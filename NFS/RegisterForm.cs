@@ -153,7 +153,7 @@ namespace NFS
         private void EmailField_TextChanged(object sender, EventArgs e)
         {
             CheckFields(this, e);
-            if (!new EmailAddressAttribute().IsValid(emailField.Text) && emailField.Text != "")
+            if (!new Email().IsValidEmail(emailField.Text) && emailField.Text != "")
             {
                 errorLabel.Visible = true;
                 errorPicture.Visible = true;

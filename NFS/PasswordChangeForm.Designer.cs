@@ -29,6 +29,7 @@ namespace NFS
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PasswordChangeForm));
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.confirmNewPassField = new System.Windows.Forms.TextBox();
@@ -57,7 +58,7 @@ namespace NFS
             this.label1.TabIndex = 1;
             this.label1.Text = "Change Password";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-           
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.PapayaWhip;
@@ -198,10 +199,11 @@ namespace NFS
             this.ClientSize = new System.Drawing.Size(451, 357);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "PasswordChangeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "PasswordChangeForm";
+            this.Text = "Password Change";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PasswordChangeForm_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
