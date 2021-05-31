@@ -45,7 +45,6 @@ namespace NFS
             {
                 logger.Info("Account Deleting not accepted; ");
             }
-
         }
 
         private void NoButton_Click(object sender, EventArgs e)
