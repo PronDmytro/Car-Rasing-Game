@@ -30,10 +30,7 @@ namespace NFS
             logger.Info("Exit From Application;");
             Application.Exit();
         }
-        private void StatisticButton_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void LeaderboardButton_Click(object sender, EventArgs e)
         {

@@ -28,6 +28,11 @@ namespace NFS
         }
         private void OkButton_Click(object sender, EventArgs e)
         {
+            if (password != passField.Text)
+            {
+                MessageBox.Show(@"Incorrect password!");
+                return;
+            }
             const MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result =
                 MessageBox.Show($@"Do you really want delete account???{Environment.NewLine}All data will be deleted!{Environment.NewLine}Continue?",
@@ -46,7 +51,6 @@ namespace NFS
                 logger.Info("Account Deleting not accepted; ");
             }
         }
-
         private void NoButton_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.No;
@@ -61,7 +65,6 @@ namespace NFS
                 passField.UseSystemPasswordChar = true;
             }
         }
-
         private void PassField_Leave(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(passField.Text))
@@ -83,7 +86,6 @@ namespace NFS
                 confirmPassField.UseSystemPasswordChar = true;
             }
         }
-
         private void ConfirmPassField_Leave(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(confirmPassField.Text))

@@ -85,8 +85,6 @@ namespace NFS
             player.GoLeft(player_box);
             player.GoRight(player_box);
 
-
-
             roadTrack1.Top += _roadSpeed;
             roadTrack2.Top += _roadSpeed;
 

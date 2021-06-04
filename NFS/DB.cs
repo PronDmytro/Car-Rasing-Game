@@ -312,7 +312,6 @@ namespace NFS
 
             CloseConnection();
         }
-
         public DataTable GetData()
         {
             DataTable table = new DataTable();
