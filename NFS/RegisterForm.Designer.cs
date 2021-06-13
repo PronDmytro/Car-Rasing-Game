@@ -146,7 +146,7 @@ namespace NFS
             this.confirmPassField.MaxLength = 18;
             this.confirmPassField.Name = "confirmPassField";
             this.confirmPassField.Size = new System.Drawing.Size(297, 33);
-            this.confirmPassField.TabIndex = 3;
+            this.confirmPassField.TabIndex = 4;
             this.confirmPassField.Text = "Confirm Password";
             this.confirmPassField.TextChanged += new System.EventHandler(this.CheckFields);
             this.confirmPassField.Enter += new System.EventHandler(this.ConfirmPassField_Enter);
@@ -160,7 +160,7 @@ namespace NFS
             this.emailField.MaxLength = 32;
             this.emailField.Name = "emailField";
             this.emailField.Size = new System.Drawing.Size(297, 33);
-            this.emailField.TabIndex = 4;
+            this.emailField.TabIndex = 5;
             this.emailField.Text = "Email";
             this.emailField.TextChanged += new System.EventHandler(this.EmailField_TextChanged);
             this.emailField.Enter += new System.EventHandler(this.EmailField_Enter);
@@ -185,7 +185,7 @@ namespace NFS
             this.ButtonRegister.Location = new System.Drawing.Point(40, 416);
             this.ButtonRegister.Name = "ButtonRegister";
             this.ButtonRegister.Size = new System.Drawing.Size(367, 36);
-            this.ButtonRegister.TabIndex = 5;
+            this.ButtonRegister.TabIndex = 6;
             this.ButtonRegister.Text = "Register Now";
             this.ButtonRegister.UseVisualStyleBackColor = false;
             this.ButtonRegister.Click += new System.EventHandler(this.ButtonRegister_Click);
@@ -199,7 +199,7 @@ namespace NFS
             this.passField.MaxLength = 18;
             this.passField.Name = "passField";
             this.passField.Size = new System.Drawing.Size(297, 33);
-            this.passField.TabIndex = 2;
+            this.passField.TabIndex = 3;
             this.passField.Text = "Password";
             this.passField.TextChanged += new System.EventHandler(this.CheckFields);
             this.passField.Enter += new System.EventHandler(this.PassField_Enter);
@@ -218,14 +218,14 @@ namespace NFS
             // userNameField
             // 
             this.userNameField.BackColor = System.Drawing.SystemColors.Window;
-            this.userNameField.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.userNameField.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.userNameField.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.userNameField.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.userNameField.Location = new System.Drawing.Point(110, 139);
             this.userNameField.MaxLength = 18;
             this.userNameField.Name = "userNameField";
             this.userNameField.Size = new System.Drawing.Size(297, 33);
-            this.userNameField.TabIndex = 1;
+            this.userNameField.TabIndex = 2;
             this.userNameField.Text = "Name";
             this.userNameField.TextChanged += new System.EventHandler(this.CheckFields);
             this.userNameField.Enter += new System.EventHandler(this.UserNameField_Enter);
@@ -271,7 +271,7 @@ namespace NFS
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(451, 75);
-            this.label1.TabIndex = 1;
+            this.label1.TabIndex = 8;
             this.label1.Text = "Register";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 

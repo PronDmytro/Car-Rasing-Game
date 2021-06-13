@@ -125,7 +125,7 @@ namespace NFS
             this.ButtonLogin.Location = new System.Drawing.Point(40, 412);
             this.ButtonLogin.Name = "ButtonLogin";
             this.ButtonLogin.Size = new System.Drawing.Size(367, 36);
-            this.ButtonLogin.TabIndex = 3;
+            this.ButtonLogin.TabIndex = 4;
             this.ButtonLogin.Text = "Login";
             this.ButtonLogin.UseVisualStyleBackColor = false;
             this.ButtonLogin.Click += new System.EventHandler(this.ButtonLogin_Click);
@@ -138,7 +138,7 @@ namespace NFS
             this.passField.MaxLength = 18;
             this.passField.Name = "passField";
             this.passField.Size = new System.Drawing.Size(297, 33);
-            this.passField.TabIndex = 2;
+            this.passField.TabIndex = 3;
             this.passField.Text = "Password";
             this.passField.TextChanged += new System.EventHandler(this.PassField_TextChanged);
             this.passField.Enter += new System.EventHandler(this.PassField_Enter);
@@ -158,11 +158,12 @@ namespace NFS
             // 
             this.loginField.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.loginField.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.loginField.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.loginField.Location = new System.Drawing.Point(110, 139);
             this.loginField.MaxLength = 32;
             this.loginField.Name = "loginField";
             this.loginField.Size = new System.Drawing.Size(297, 33);
-            this.loginField.TabIndex = 1;
+            this.loginField.TabIndex = 2;
             this.loginField.Text = "Email";
             this.loginField.TextChanged += new System.EventHandler(this.LoginField_TextChanged);
             this.loginField.Enter += new System.EventHandler(this.LoginField_Enter);

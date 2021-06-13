@@ -318,7 +318,7 @@ namespace NFS
 
             MySqlDataAdapter adapter = new MySqlDataAdapter();
 
-            MySqlCommand command = new MySqlCommand("SELECT * FROM `users` ORDER BY id", GetConnection());
+            MySqlCommand command = new MySqlCommand("SELECT * FROM `users` ORDER BY record DESC", GetConnection());
             
             OpenConnection();
             if (isConnectionOpen)
